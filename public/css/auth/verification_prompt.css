@@ -1,0 +1,71 @@
+/* Verification Prompt Styles */
+
+.countdown-timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.countdown-timer .badge {
+    font-size: 1.5rem !important;
+    padding: 0.5rem 1rem;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#verificationSuccessMessage .alert {
+    border-left: 4px solid #28a745;
+}
+
+#verificationSuccessMessage .btn {
+    min-width: 150px;
+}
+
+/* 6-box token input styling */
+.token-inputs {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.token-inputs .token-box {
+    width: 44px;
+    height: 48px;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+}
+
+.token-inputs .token-box:focus {
+    outline: none;
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+@media (max-width: 576px) {
+    #verificationSuccessMessage .d-flex {
+        flex-direction: column;
+        gap: 0.5rem !important;
+    }
+    
+    #verificationSuccessMessage .btn {
+        width: 100%;
+    }
+
+    .token-inputs {
+        gap: 0.4rem;
+    }
+    .token-inputs .token-box {
+        width: 40px;
+        height: 46px;
+        font-size: 1.1rem;
+    }
+}

@@ -1,0 +1,389 @@
+
+header {
+    background-color: #060E57;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px; /* Default padding for header */
+    display: flex;
+    align-items: center;
+    color: white;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+header.counselor-header .header-container {
+    display: flex !important;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    /* Default padding, will be overridden by media queries for small screens */
+    padding: 0 20px;
+}
+
+header.counselor-header .header-container .row {
+    display: flex !important;
+    flex-wrap: nowrap !important; /* Crucial: prevent wrapping */
+    width: 100% !important;
+    margin-left: 0 !important; /* Zero out row margins */
+    margin-right: 0 !important;
+}
+
+header.counselor-header .header-container .row .col-md-3 {
+    flex: 0 0 140px !important; /* Fixed width for logo and title */
+    flex-shrink: 0; /* Prevent shrinking */
+    min-width: 0; /* Allow content to truly shrink if necessary */
+    max-width: 140px !important; /* Ensure it doesn't grow beyond this */
+    padding-left: 0 !important; /* Zero out column padding */
+    padding-right: 0 !important; /* Zero out column padding */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+}
+
+header.counselor-header .header-container .row .col-md-9 {
+    flex: 0 0 calc(100% - 140px) !important; /* Take remaining space precisely */
+    flex-shrink: 0; /* Prevent shrinking */
+    min-width: 0; /* Allow content to truly shrink if necessary */
+    padding-left: 0 !important; /* Zero out column padding */
+    padding-right: 0 !important; /* Zero out column padding */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+}
+
+header.counselor-header img.logo {
+    width: auto;
+    max-width: 40px;
+    height: auto;
+    object-fit: contain;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+header.counselor-header h1 {
+    margin-bottom: 0 !important;
+    white-space: nowrap !important; /* Crucial: prevent text wrapping */
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+}
+
+header.counselor-header .logo-title-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0 !important;
+}
+
+header.counselor-header nav {
+    margin-left: auto !important;
+    display: flex !important;
+}
+
+header.counselor-header nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+}
+
+header.counselor-header nav ul li {
+    display: inline-block;
+    margin: 0 0 0 30px;
+}
+
+header.counselor-header nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+header.counselor-header nav a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Add underline animation on hover */
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: white;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    opacity: 0;
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 80%;
+    opacity: 1;
+}
+
+/* Icon animation on hover */
+.navbar-nav .nav-link i {
+    transition: transform 0.3s ease;
+    color: white !important;
+    margin-right: 6px;
+}
+
+.navbar-nav .nav-link:hover i {
+    transform: scale(1.2);
+}
+
+/* Custom Navbar Toggler for Admin Drawer */
+.counselor-navbar-toggler {
+    background-color: transparent;
+    border: 1px solid white;
+    padding: 0.25rem 0.25rem;
+    font-size: 1rem;
+    line-height: 2;
+    border-radius: 0.25rem;
+    color: white;
+    cursor: pointer;
+    margin-left: auto !important; /* Push to the right */
+    margin-right: .7rem !important;
+    margin-top: .7rem !important;
+    margin-bottom: .7rem !important;
+    z-index: 1050; /* Ensure it's above other content */
+    display: none; /* Hidden by default, shown on mobile */
+}
+
+.counselor-navbar-toggler .navbar-toggler-icon {
+    display: flex !important; /* Make it a flex container */
+    justify-content: center !important; /* Center horizontally */
+    align-items: center !important; /* Center vertically */
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    filter: brightness(0) invert(1); /* Makes the icon white */
+}
+
+.counselor-navbar-toggler .navbar-toggler-icon i {
+    font-size: 1.5em !important; /* Make icon 50% bigger */
+    color: white; /* Ensure icon color is white */
+}
+
+/* Admin Navbar Drawer */
+.counselor-navbar-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px;
+    max-width: 80vw;
+    height: 100%;
+    background-color: #060E57;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-out;
+    z-index: 1040;
+    padding-top: 20px; /* Reduced space from top of window */
+    visibility: hidden;
+}
+
+.counselor-navbar-drawer.show {
+    transform: translateX(0);
+    visibility: visible;
+}
+
+.counselor-navbar-drawer .navbar-nav {
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.counselor-navbar-drawer .nav-item {
+    width: 100%;
+    margin: 0;
+}
+
+.counselor-navbar-drawer .nav-link {
+    padding: 0.75rem 1rem !important;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center !important; /* Vertically center icon and text */
+    border-radius: 0;
+    color: white !important;
+    text-decoration: none;
+}
+
+.counselor-navbar-drawer .nav-link i {
+    margin-right: 10px; /* Add space between icon and text */
+}
+
+.counselor-navbar-drawer .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Admin Navbar Overlay */
+.counselor-navbar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1039;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+}
+
+.counselor-navbar-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (max-width: 991.98px) {
+    .container-fluid {
+        padding-left: 0 !important; /* Zero out container-fluid padding */
+        padding-right: 0 !important; /* Zero out container-fluid padding */
+    }
+
+    header.counselor-header .header-container {
+        padding: 0 5px !important; /* Minimal padding for header container */
+    }
+
+    header.counselor-header .header-container .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    header.counselor-header .header-container .row .col-md-3 {
+        flex: 0 0 100px !important; /* Fixed width for logo/title */
+        max-width: 100px !important;
+        padding-left: 0 !important; /* Zero out column padding */
+        padding-right: 0 !important; /* Zero out column padding */
+    }
+
+    header.counselor-header .header-container .row .col-md-9 {
+        flex: 0 0 calc(100% - 120px) !important; /* Take remaining space precisely */
+        min-width: 0 !important;
+        padding-left: 0 !important; /* Zero out column padding */
+        padding-right: 0 !important; /* Zero out column padding */
+        display: flex !important;
+        justify-content: flex-end !important;
+        align-items: center !important;
+    }
+
+    .counselor-navbar-toggler {
+        display: block !important; /* Show hamburger menu on mobile */
+        margin-left: auto !important;
+        order: 2;
+    }
+
+    header.counselor-header .logo-title-container {
+        margin-bottom: 0 !important;
+    }
+
+    header.counselor-header h1 {
+        margin: 0 !important;
+        text-align: left !important;
+        font-size: 1.1rem !important;
+        white-space: nowrap !important;
+    }
+
+    /* Hide standard nav elements completely on small screens */
+    header.counselor-header nav {
+        display: none !important;
+    }
+
+    /* Navigation Tabs - Tablet/Mobile responsive */
+    .nav-tabs {
+        display: flex !important;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        border-bottom: 1px solid #dee2e6;
+        padding: 0 5px;
+        gap: 5px;
+    }
+
+    .nav-tabs .nav-item {
+        flex: 0 0 auto;
+        margin-bottom: -1px;
+        min-width: 50px;
+    }
+
+    .nav-tabs .nav-link {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        padding: 10px 8px !important;
+        text-align: center;
+        min-height: 60px;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .nav-tabs .nav-link i {
+        font-size: 1.2rem;
+        margin: 0;
+    }
+
+    /* Hide text labels on tablet/mobile - show only icons */
+    .nav-tabs .nav-link .tab-text {
+        display: none !important;
+    }
+}
+
+@media (max-width: 767.98px) {
+    /* Navigation Tabs - Smartphone adjustments */
+    .nav-tabs {
+        gap: 4px;
+        padding: 0 3px;
+    }
+
+    .nav-tabs .nav-item {
+        min-width: 45px;
+    }
+
+    .nav-tabs .nav-link {
+        padding: 8px 6px !important;
+        min-height: 55px;
+        gap: 3px;
+    }
+
+    .nav-tabs .nav-link i {
+        font-size: 1.1rem;
+    }
+    
+}
+
+@media (max-width: 575.98px) {
+    /* Navigation Tabs - Extra small smartphones */
+    .nav-tabs {
+        gap: 3px;
+        padding: 0 2px;
+    }
+
+    .nav-tabs .nav-item {
+        min-width: 40px;
+    }
+
+    .nav-tabs .nav-link {
+        padding: 6px 4px !important;
+        min-height: 50px;
+        gap: 2px;
+    }
+
+    .nav-tabs .nav-link i {
+        font-size: 1rem;
+    }
+}

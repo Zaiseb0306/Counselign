@@ -1,0 +1,983 @@
+body {
+    background-color: #f7f7f7;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+/* Main Content Styles */
+.main-wrapper {
+    display: flex;
+    min-height: calc(100vh - 160px);
+    padding: 2rem;
+    gap: 2rem;
+}
+
+/* Sidebar Styles */
+.profile-sidebar {
+    width: 250px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.admin-profile-container {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.admin-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    border: 3px solid #003366;
+}
+
+.admin-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.admin-menu-item {
+    padding: 0.75rem 1rem;
+    color: #333;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.admin-menu-item:hover {
+    background-color: #f0f0f0;
+    color: #003366;
+}
+
+.admin-menu-item.active {
+    background-color: #003366;
+    color: white;
+}
+
+.logout-item {
+    margin-top: auto;
+    color: #dc3545;
+}
+
+.logout-item:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Content Area Styles */
+.content-area {
+    flex: 1;
+    background-color: white;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.users-header {
+    margin-bottom: 2rem;
+}
+
+.content-title {
+    margin-bottom: 1.5rem;
+    color: #003366;
+}
+
+/* User Stats Styles */
+.user-stats {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #003366;
+}
+
+.stat-card i {
+    font-size: 2rem;
+    color: #003366;
+}
+
+.stat-info h3 {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.stat-info p {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #003366;
+}
+
+/* Search and Filter Styles */
+.search-filter-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.search-box {
+    flex: 1;
+    position: relative;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 0.5rem 2.5rem 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.search-box i {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+}
+
+.filter-box select {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+}
+
+/* Table Styles */
+.table-container {
+    overflow-x: auto;
+}
+
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.users-table th,
+.users-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.users-table th {
+    background-color: #f8f9fa;
+    color: #003366;
+    font-weight: 600;
+}
+
+.users-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Status Badge Styles */
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.status-active {
+    background-color: #e7f7ed;
+    color: #198754;
+}
+
+.status-inactive {
+    background-color: #f8d7da;
+    color: #dc3545;
+}
+
+/* Empty State Styles */
+.no-users-message {
+    text-align: center;
+    padding: 3rem;
+    color: #666;
+}
+
+.no-users-message i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #060E57;
+    padding: 30px 0;
+    text-align: center;
+    color: #ffffff;
+    width: 100%;
+    margin-top: auto;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.copyright {
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.team-members {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.team-members span {
+    position: relative;
+}
+
+.team-members span:not(:last-child):after {
+    content: "•";
+    position: absolute;
+    right: -12px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .main-wrapper {
+        flex-direction: column;
+    }
+
+    .profile-sidebar {
+        width: 100%;
+    }
+
+    .user-stats {
+        flex-direction: row !important;
+        flex-wrap: nowrap;
+        gap: 0.75rem;
+    }
+
+    .search-filter-container {
+        flex-direction: row !important;
+        align-items: center;
+        gap: 0.75rem;
+    }
+    .search-filter-container .search-box { flex: 1 1 60%; min-width: 0; }
+    .search-filter-container .filter-box { flex: 0 1 40%; min-width: 120px; }
+    .filter-box select { width: 100%; }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .team-members {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+/* Enhanced Responsive Design for Mobile Devices */
+@media (max-width: 991.98px) {
+    .main-wrapper {
+        padding: 10px;
+    }
+
+    .content-area {
+        padding: 15px;
+    }
+
+    .users-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .users-header h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .user-stats {
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: nowrap !important;
+    }
+
+    .stat-card {
+        min-width: 120px;
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+
+    .stat-card i {
+        font-size: 1.5rem;
+    }
+
+    .stat-card .stat-number {
+        font-size: 1.3rem;
+    }
+
+    /* Search and filter responsive */
+    .search-filter-container {
+        flex-direction: row !important;
+        gap: 10px;
+        padding: 15px;
+        align-items: center;
+    }
+
+    .search-box { flex: 1 1 60%; min-width: 0; }
+    .filter-box { flex: 0 1 40%; min-width: 140px; }
+
+    .search-box input,
+    .filter-box select {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    /* Users grid responsive */
+    .users-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .user-card {
+        padding: 15px;
+    }
+
+    .user-header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .user-avatar {
+        width: 50px;
+        height: 50px;
+        margin-right: 0;
+        align-self: center;
+    }
+
+    .user-name {
+        font-size: 1rem;
+    }
+
+    .user-id {
+        font-size: 0.8rem;
+    }
+
+    .user-info {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .info-item {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .info-item i {
+        margin-right: 0;
+    }
+
+    .user-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .user-actions .btn {
+        width: 100%;
+        font-size: 0.85rem;
+        padding: 8px 12px;
+    }
+
+    /* Table responsive adjustments */
+    .table-responsive {
+        font-size: 0.8rem;
+    }
+
+    .table th,
+    .table td {
+        padding: 8px 6px !important;
+        font-size: 0.75rem;
+    }
+
+    /* Modal adjustments */
+    .modal-dialog {
+        margin: 10px;
+        max-width: calc(100% - 20px);
+    }
+
+    .modal-body {
+        padding: 15px;
+    }
+
+    .modal-footer .btn {
+        font-size: 0.85rem;
+        padding: 8px 16px;
+    }
+}
+
+/* PDS Modal Styles */
+#studentPDSModal .modal-dialog {
+    max-width: 95vw;
+    margin: 1rem auto;
+}
+
+#studentPDSModal .modal-content {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+#studentPDSModal .modal-header {
+    background: linear-gradient(135deg, #003366 0%, #004080 100%);
+    border-radius: 12px 12px 0 0;
+    padding: 1.5rem;
+    border-bottom: none;
+}
+
+#studentPDSModal .modal-title {
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+#studentPDSModal .btn-close-white {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* PDS Header Styles */
+.pds-header {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-bottom: 2px solid #dee2e6;
+}
+
+.pds-profile-picture img {
+    transition: transform 0.3s ease;
+}
+
+.pds-profile-picture img:hover {
+    transform: scale(1.05);
+}
+
+/* PDS Tabs Styles */
+.pds-tabs-container .nav-tabs {
+    border-bottom: 2px solid #dee2e6;
+    background-color: #f8f9fa;
+    margin: 0;
+}
+
+.pds-tabs-container .nav-tabs .nav-link {
+    border: none;
+    border-radius: 0;
+    color: #6c757d;
+    font-weight: 500;
+    padding: 1rem 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.pds-tabs-container .nav-tabs .nav-link:hover {
+    color: #003366;
+    background-color: #e9ecef;
+    border-color: transparent;
+}
+
+.pds-tabs-container .nav-tabs .nav-link.active {
+    color: #003366;
+    background-color: white;
+    border-color: transparent;
+    border-bottom: 3px solid #003366;
+    font-weight: 600;
+}
+
+.pds-tabs-container .nav-tabs .nav-link i {
+    margin-right: 0.5rem;
+}
+
+/* PDS Content Styles */
+.pds-tabs-container .tab-content {
+    background-color: white;
+    min-height: 400px;
+}
+
+.info-item {
+    margin-bottom: 1.5rem;
+}
+
+.info-label {
+    font-weight: 600;
+    color: #495057;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-value {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    color: #212529;
+    min-height: 2.5rem;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.info-value:hover {
+    background-color: #e9ecef;
+    border-color: #003366;
+}
+
+/* Section Headers */
+.pds-tabs-container h6 {
+    color: #003366;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.pds-tabs-container h6 i {
+    margin-right: 0.5rem;
+}
+
+/* Loading and Error States */
+#pdsLoadingState .spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
+
+#pdsErrorState {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin: 2rem;
+}
+
+#pdsErrorState i {
+    color: #ffc107;
+}
+
+/* Action Button Styles */
+.action-btn {
+    background: linear-gradient(135deg, #003366 0%, #004080 100%);
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 51, 102, 0.2);
+}
+
+.action-btn:hover {
+    background: linear-gradient(135deg, #004080 0%, #0056b3 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 51, 102, 0.3);
+    color: white;
+}
+
+.action-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 51, 102, 0.2);
+}
+
+.action-btn i {
+    margin-right: 0.5rem;
+}
+
+/* Responsive Design for PDS Modal */
+@media (max-width: 1200px) {
+    #studentPDSModal .modal-dialog {
+        max-width: 98vw;
+        margin: 0.5rem auto;
+    }
+}
+
+@media (max-width: 768px) {
+    #studentPDSModal .modal-dialog {
+        max-width: 100vw;
+        margin: 0;
+        height: 100vh;
+    }
+    
+    #studentPDSModal .modal-content {
+        height: 100vh;
+        border-radius: 0;
+    }
+    
+    #studentPDSModal .modal-header {
+        border-radius: 0;
+        padding: 1rem;
+    }
+    
+    #studentPDSModal .modal-title {
+        font-size: 1.1rem;
+    }
+    
+    .pds-header {
+        padding: 1.5rem 1rem;
+    }
+    
+    .pds-profile-picture img {
+        width: 60px !important;
+        height: 60px !important;
+    }
+    
+    .pds-tabs-container .nav-tabs .nav-link {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .pds-tabs-container .nav-tabs .nav-link i {
+        margin-right: 0.25rem;
+    }
+    
+    .pds-tabs-container .tab-content {
+        padding: 1rem;
+    }
+    
+    .info-item {
+        margin-bottom: 1rem;
+    }
+    
+    .info-label {
+        font-size: 0.8rem;
+    }
+    
+    .info-value {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+        min-height: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .pds-header .row {
+        text-align: center;
+    }
+    
+    .pds-header .col {
+        margin-top: 1rem;
+    }
+    
+    .pds-tabs-container .nav-tabs {
+        flex-direction: column;
+    }
+    
+    .pds-tabs-container .nav-tabs .nav-link {
+        border-radius: 6px;
+        margin-bottom: 0.25rem;
+        text-align: center;
+    }
+    
+    .pds-tabs-container .nav-tabs .nav-link.active {
+        border-bottom: 3px solid #003366;
+        border-radius: 6px 6px 0 0;
+    }
+    
+    .info-value {
+        font-size: 0.85rem;
+        padding: 0.5rem;
+    }
+}
+
+/* Animation for modal content */
+#pdsContent {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Enhanced button styling */
+.action-btn .btn-text {
+    font-size: 0.9rem;
+}
+
+@media (max-width: 480px) {
+    .action-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+    
+    .action-btn .btn-text {
+        display: none;
+    }
+    
+    .action-btn i {
+        margin-right: 0;
+    }
+}
+
+/* PWD Proof File Display Styles */
+.pwd-proof-container {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.pwd-proof-container:hover {
+    background-color: #e9ecef;
+    border-color: #003366;
+}
+
+.pwd-proof-placeholder {
+    text-align: center;
+    padding: 2rem;
+    color: #6c757d;
+}
+
+.pwd-proof-file {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.pwd-proof-preview {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 6px;
+    border: 1px solid #dee2e6;
+}
+
+.pwd-proof-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.pwd-proof-icon i {
+    color: #6c757d;
+}
+
+.pwd-proof-info {
+    flex: 1;
+    text-align: left;
+}
+
+.pwd-proof-name {
+    color: #212529;
+    font-weight: 600;
+    margin: 0;
+}
+
+.pwd-proof-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.pwd-proof-actions .btn {
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.pwd-proof-actions .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* PWD Proof Preview Modal Styles */
+#pwdProofPreviewModal .modal-content {
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+#pwdProofPreviewModal .modal-header {
+    background: linear-gradient(135deg, #003366 0%, #004080 100%);
+    border-radius: 12px 12px 0 0;
+    border-bottom: none;
+}
+
+#pwdProofPreviewContent {
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#pwdProofPreviewContent img {
+    max-width: 100%;
+    max-height: 70vh;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#pwdProofPreviewContent embed {
+    width: 100%;
+    height: 70vh;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+}
+
+/* Responsive Design for PWD Proof */
+@media (max-width: 768px) {
+    .pwd-proof-container {
+        padding: 1rem;
+    }
+    
+    .pwd-proof-preview {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+    }
+    
+    .pwd-proof-info {
+        text-align: center;
+    }
+    
+    .pwd-proof-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .pwd-proof-actions .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .pwd-proof-placeholder {
+        padding: 1rem;
+    }
+    
+    .pwd-proof-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .pwd-proof-icon i {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .main-wrapper {
+        padding: 5px;
+    }
+
+    .content-area {
+        padding: 10px;
+    }
+
+    .users-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .stat-card {
+        min-width: 100px;
+        padding: 10px;
+        font-size: 0.8rem;
+    }
+
+    .stat-card .stat-number {
+        font-size: 1.2rem;
+    }
+
+    .user-card {
+        padding: 12px;
+    }
+
+    .user-actions .btn {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
+
+    .search-box input,
+    .filter-box select {
+        font-size: 0.85rem;
+        padding: 8px;
+    }
+
+    .table th,
+    .table td {
+        padding: 6px 4px !important;
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .users-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .user-stats {
+        flex-direction: row !important;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+
+    .stat-card { flex: 1 1 0; min-width: 0; width: auto; max-width: none; padding: 10px; }
+    .stat-card i { font-size: 1.3rem; }
+    .stat-info h3 { font-size: 0.85rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .stat-info p { font-size: 1.3rem; }
+
+    /* Keep search + filter in one row on very small screens */
+    .search-filter-container { gap: 0.5rem; }
+    .search-filter-container .search-box { flex: 1 1 58%; }
+    .search-filter-container .filter-box { flex: 0 1 42%; min-width: 120px; }
+    .filter-box select { width: 100%; }
+
+    .user-card {
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .modal-dialog {
+        margin: 5px;
+        max-width: calc(100% - 10px);
+    }
+
+    .modal-body {
+        padding: 10px;
+    }
+} 
