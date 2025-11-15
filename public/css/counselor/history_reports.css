@@ -1,0 +1,882 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f0f4f8;
+    color: #1a3a5f;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.main-content {
+    flex: 1;
+    padding: 30px 10px;
+    background-color: #f8f9fa;
+}
+
+.report-container {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-bottom: 30px;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.page-header {
+    margin-bottom: 30px;
+    border-bottom: 2px solid #eee;
+    padding: 10px 10px 20px 10px !important;
+}
+
+.page-header h2 {
+    color: #060E57;
+    font-size: 28px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+
+.page-header h2 i {
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+.filter-section {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.input-group-text {
+    background-color: #ffffff;
+    border-right: none;
+}
+
+.input-group-text i {
+    color: #1a4b8c;
+}
+
+.input-group .form-control {
+    border-left: none;
+}
+
+.input-group .form-control:focus {
+    border-left: none;
+    box-shadow: none;
+}
+
+.btn-primary {
+    background-color: #060E57;
+    border-color: #060E57;
+    padding: 10px 20px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0a1675;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Statistics Cards */
+.stats-summary {
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 20px;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.stat-details {
+    flex: 1;
+}
+
+.stat-details h3 {
+    font-size: 28px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.stat-details p {
+    margin: 5px 0 0;
+    color: #6c757d;
+    font-size: 14px;
+}
+
+/* Status-specific styles */
+.stat-card.completed .stat-icon {
+    background-color: #e3f2fd;
+    color: #0d6efd;
+}
+
+.stat-card.approved .stat-icon {
+    background-color: #e8f5e9;
+    color: #198754;
+}
+
+.stat-card.rejected .stat-icon {
+    background-color: #ffebee;
+    color: #dc3545;
+}
+
+.stat-card.pending .stat-icon {
+    background-color: #fff3e0;
+    color: #ffc107;
+}
+
+.stat-card.cancelled .stat-icon {
+    background-color: #6c757d;
+}
+
+/* Charts Section */
+.charts-section {
+    margin-top: 20px;
+}
+
+.chart-container {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+.chart-container h4 {
+    color: #060E57;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.chart-container h4 i {
+    margin-right: 8px;
+}
+
+.trend-chart {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.trend-chart:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    transform: translateY(-2px);
+}
+
+.chart-wrapper {
+    position: relative;
+    margin: auto;
+    width: 100%;
+    height: 400px;
+}
+
+/* Specific styling for pie chart containers */
+.pie-chart {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.pie-chart h4 {
+    flex-shrink: 0;
+}
+
+.pie-chart canvas {
+    flex: 1;
+    max-height: 300px;
+}
+
+footer {
+    background-color: #060E57;
+    padding: 30px 0;
+    text-align: center;
+    color: #ffffff;
+    width: 100%;
+    margin-top: auto;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.copyright {
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.team-members {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.team-members span {
+    position: relative;
+}
+
+.team-members span:not(:last-child):after {
+    content: "•";
+    position: absolute;
+    right: -12px;
+}
+
+.dashboard-card {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* Dashboard announcement icon styles */
+.announcement-dashboard-icon {
+    font-size: 1.6rem;
+    color: #073c8a;
+    background: #fff;
+    border-radius: 50%;
+    padding: 0.4rem;
+    box-shadow: 0 2px 8px rgba(13, 110, 253, 0.08);
+    transition: color 0.2s, box-shadow 0.2s, transform 0.2s;
+    border: 2px solid #e3eafc;
+}
+
+.announcement-dashboard-icon:hover {
+    color: #fff;
+    background: #0d6efd;
+    box-shadow: 0 4px 16px rgba(13, 110, 253, 0.18);
+    transform: scale(1.13) rotate(-8deg);
+    border-color: #0d6efd;
+    cursor: pointer;
+}
+
+/* Enhanced Messages Badge Styles */
+.messages-badge {
+    min-width: 28px;
+    height: 28px;
+    font-size: 1rem;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 8px;
+    right: 24px;
+    box-shadow: 0 0 8px 2px rgba(220, 53, 69, 0.3);
+    z-index: 2;
+    transition: transform 0.2s;
+}
+
+.dashboard-message-highlight {
+    border: 2px solid #ffc107 !important;
+    background: #fffbe6 !important;
+    box-shadow: 0 0 8px #ffe082;
+    position: relative;
+    transition: background 0.3s, border 0.3s;
+}
+
+.new-badge {
+    display: inline-block;
+    background: #ffc107;
+    color: #212529;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    padding: 0.15em 0.6em;
+    margin-left: 0.5em;
+    vertical-align: middle;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .container {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+
+    /* Statistics Grid Responsive */
+    .row.g-4 .col-lg-3,
+    .row.g-4 .col-md-6 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        margin-bottom: 15px;
+    }
+
+    .stat-card {
+        margin-bottom: 15px;
+        padding: 20px 15px;
+        text-align: center;
+    }
+
+    .stat-card h3 {
+        font-size: 1.8rem !important;
+    }
+
+    .stat-card p {
+        font-size: 0.9rem !important;
+    }
+
+    /* Chart Container Responsive */
+    .chart-container {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .chart-container h4 {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+
+
+    /* Filter Section Responsive */
+
+    .filter-section {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+    }
+
+    .filter-section .btn {
+        white-space: nowrap;
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+
+    /* Statistics Summary - Tablet/Mobile responsive */
+    .stats-summary {
+        display: flex !important;
+        flex-wrap: nowrap;
+        gap: 8px;
+        overflow-x: auto;
+        padding: 0 5px;
+    }
+
+    .stats-summary .col-md-2 {
+        flex: 0 0 auto !important;
+        max-width: none !important;
+        min-width: 50px;
+        /* 50% of desktop width */
+    }
+
+    .stats-summary .stat-card {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 8px !important;
+        text-align: center;
+        min-height: 80px;
+        gap: 6px;
+        width: 100%;
+    }
+
+    .stats-summary .stat-icon {
+        margin-bottom: 0;
+    }
+
+    .stats-summary .stat-icon i {
+        font-size: 1.5rem;
+    }
+
+    .stats-summary .stat-details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+    }
+
+    .stats-summary .stat-details h3 {
+        margin: 0 !important;
+        font-size: 1.2rem !important;
+        font-weight: 700;
+        line-height: 1;
+    }
+
+    /* Hide text labels on tablet/mobile - show only icon and count */
+    .stats-summary .stat-details p {
+        display: block !important;
+    }
+
+
+
+    /* Appointment Filter Options - Tablet/Mobile responsive */
+    .appointment-filters .filter-line-1,
+    .appointment-filters .filter-line-2 {
+        display: flex !important;
+        gap: 10px;
+        margin-bottom: 15px;
+        width: 100%;
+        padding: 0 5px;
+    }
+
+    .appointment-filters .filter-line-1 {
+        margin-bottom: 15px;
+    }
+
+    .appointment-filters .filter-line-2 {
+        margin-bottom: 0;
+    }
+
+    .appointment-filters .col-mobile {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .appointment-filters .input-group {
+        margin-bottom: 0;
+        width: 100%;
+    }
+}
+
+
+/* Responsive Design for Mobile Devices */
+@media (max-width: 991.98px) {
+    .container {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+
+    /* Statistics Grid Responsive */
+    .row.g-4 .col-lg-3,
+    .row.g-4 .col-md-6 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        margin-bottom: 15px;
+    }
+
+    .stat-card {
+        margin-bottom: 15px;
+        padding: 20px 15px;
+        text-align: center;
+    }
+
+    .stat-card h3 {
+        font-size: 1.8rem !important;
+    }
+
+    .stat-card p {
+        font-size: 0.9rem !important;
+    }
+
+    /* Chart Container Responsive */
+    .chart-container {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .chart-container h4 {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+
+
+    /* Filter Section Responsive */
+
+    .filter-section {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+    }
+
+    .filter-section .btn {
+        white-space: nowrap;
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+
+    /* Statistics Summary - Tablet/Mobile responsive */
+    .stats-summary {
+        display: flex !important;
+        flex-wrap: nowrap;
+        gap: 8px;
+        overflow-x: auto;
+        padding: 0 5px;
+    }
+
+    .stats-summary .col-md-2 {
+        flex: 0 0 auto !important;
+        max-width: none !important;
+        min-width: 50px;
+        /* 50% of desktop width */
+    }
+
+    .stats-summary .stat-card {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 8px !important;
+        text-align: center;
+        min-height: 80px;
+        gap: 6px;
+        width: 100%;
+    }
+
+    .stats-summary .stat-icon {
+        margin-bottom: 0;
+    }
+
+    .stats-summary .stat-icon i {
+        font-size: 1.5rem;
+    }
+
+    .stats-summary .stat-details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+    }
+
+    .stats-summary .stat-details h3 {
+        margin: 0 !important;
+        font-size: 1.2rem !important;
+        font-weight: 700;
+        line-height: 1;
+    }
+
+    /* Hide text labels on tablet/mobile - show only icon and count */
+    .stats-summary .stat-details p {
+        display: block !important;
+    }
+
+
+
+    /* Appointment Filter Options - Tablet/Mobile responsive */
+    .appointment-filters .filter-line-1,
+    .appointment-filters .filter-line-2 {
+        display: flex !important;
+        gap: 10px;
+        margin-bottom: 15px;
+        width: 100%;
+        padding: 0 5px;
+    }
+
+    .appointment-filters .filter-line-1 {
+        margin-bottom: 15px;
+    }
+
+    .appointment-filters .filter-line-2 {
+        margin-bottom: 0;
+    }
+
+    .appointment-filters .col-mobile {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .appointment-filters .input-group {
+        margin-bottom: 0;
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .container {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
+
+    /* Smartphone layout adjustments */
+    .flex-container {
+        padding: 12px 15px;
+        gap: 12px;
+    }
+
+
+
+     /* Statistics Grid Responsive */
+    .row.g-4 .col-lg-3,
+    .row.g-4 .col-md-6,
+    .row.g-3 .col-md-4 {
+        flex: 0 0 100% !important;
+        max-width: 50% !important;
+        margin-bottom: 15px;
+    }
+
+
+    .filter-section {
+        background-color: #f8f9fa;
+        padding: 10px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+
+    .filter-section .btn {
+        white-space: nowrap;
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+
+    /* Statistics Summary - Desktop layout preserved */
+    .stats-summary {
+        display: flex !important;
+        flex-wrap: nowrap;
+    }
+
+    .stats-summary .col-md-2 {
+        flex: 0 0 100% !important;
+        max-width: 25% !important;
+    }
+
+    .stats-summary .stat-card {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+        padding: 1rem;
+    }
+
+    .stats-summary .stat-icon {
+        flex-shrink: 0;
+    }
+
+    .stats-summary .stat-details {
+        flex: 1;
+    }
+
+    .stats-summary .stat-details p {
+        display: block !important;
+        margin: 0;
+        font-size: 0.875rem;
+        color: #6c757d;
+    }
+
+    .stats-summary .stat-details h3 {
+        margin: 0 0 0.25rem 0;
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    .chart-container {
+        padding: 10px;
+    }
+
+    /* Chart wrapper for smartphone responsiveness */
+    .chart-wrapper {
+        height: 350px;
+    }
+
+    /* Pie chart smartphone responsiveness */
+    .pie-chart {
+        height: 350px;
+    }
+
+    .pie-chart canvas {
+        max-height: 250px;
+    }
+
+    /* Ensure chart canvas is fully visible on smartphones */
+    .chart-wrapper canvas {
+        max-width: 100% !important;
+        height: 100% !important;
+    }
+
+    .table-responsive {
+        font-size: 0.75rem;
+    }
+
+    .table th,
+    .table td {
+        padding: 6px 4px !important;
+        font-size: 0.75rem;
+    }
+
+
+
+    /* Appointment Filter Options - Smartphone adjustments */
+    .appointment-filters .filter-line-1,
+    .appointment-filters .filter-line-2 {
+        gap: 8px;
+        padding: 0 3px;
+        margin-bottom: 12px;
+    }
+
+    .appointment-filters .filter-line-2 {
+        margin-bottom: 0;
+    }
+
+    .appointment-filters .btn-group {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 6px;
+    }
+
+    .appointment-filters .btn-group .btn {
+        flex: 1 !important;
+        font-size: 0.8rem;
+        padding: 8px 10px;
+        width: auto !important;
+        display: inline-block !important;
+    }
+
+    .appointment-filters .input-group .form-control {
+        font-size: 0.85rem;
+        padding: 8px 12px;
+    }
+    .appointment-filters .col-mobile {
+        flex: 1;
+        min-width: 0;
+    }
+}
+
+
+@media (max-width: 575.98px) {
+
+    /* Extra small smartphones - more compact */
+    .flex-container {
+        border-radius: 15px;
+        padding: 10px 12px;
+        gap: 10px;
+    }
+
+     /* Statistics Grid Responsive */
+    .row.g-4 .col-lg-3,
+    .row.g-4 .col-md-6,
+    .row.g-3 .col-md-4 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        margin-bottom: 15px;
+    }
+
+    /* Statistics Summary - Desktop layout preserved */
+    .stats-summary {
+        display: flex !important;
+        flex-wrap: nowrap;
+    }
+
+    .stats-summary .col-md-2 {
+        flex: 0 0 100% !important;
+        max-width: 35% !important;
+    }
+
+    .stats-summary .stat-card {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .stats-summary .stat-icon {
+        flex-shrink: 0;
+    }
+
+    .stats-summary .stat-details {
+        flex: 1;
+    }
+
+    .stats-summary .stat-details p {
+        display: hidden !important;
+        margin: 0;
+        font-size: 0.875rem;
+        color: #6c757d;
+    }
+
+    .stats-summary .stat-details h3 {
+        margin: 0 0 0.25rem 0;
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+
+
+    /* Appointment Filter Options - Extra small smartphones */
+    .appointment-filters .filter-line-1,
+    .appointment-filters .filter-line-2 {
+        gap: 6px;
+        padding: 0 2px;
+        margin-bottom: 10px;
+    }
+
+    .appointment-filters .filter-line-2 {
+        margin-bottom: 0;
+    }
+
+    .appointment-filters .btn-group {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 4px;
+    }
+
+    .appointment-filters .btn-group .btn {
+        flex: 1 !important;
+        font-size: 0.75rem;
+        padding: 6px 8px;
+        width: auto !important;
+        display: inline-block !important;
+    }
+
+    .appointment-filters .input-group .form-control {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
+
+    .message-item,
+    .notification-item {
+        padding: 8px;
+    }
+
+    .appointment-filters .col-mobile {
+        flex: 1;
+        min-width: 0;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

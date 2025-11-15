@@ -1,0 +1,65 @@
+/* Appointments page mobile/tablet overrides. Keep desktop unchanged. */
+
+@media (max-width: 991.98px) {
+
+    /* Ensure side padding for the main wrapper on tablets */
+    .container-fluid.px-4 {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+    }
+
+    main {
+        padding-top: 0.75rem !important;
+        padding-bottom: 1rem !important;
+    }
+
+    .appointments-container {
+        margin-top: 0.75rem;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+
+    /* Phones landscape */
+    .container-fluid.px-4 {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+    }
+
+    main {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.75rem !important;
+    }
+
+    .appointments-container {
+        margin-top: 0.5rem;
+        margin-bottom: 0.75rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+
+    /* Phones portrait */
+    .container-fluid.px-4 {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+    }
+
+    main {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+    }
+
+    .appointments-header {
+        padding: 0.75rem 0.75rem !important;
+    }
+
+    .filter-controls {
+        gap: 6px !important;
+    }
+
+    .filter-controls .form-select {
+        min-width: 0 !important;
+    }
+}

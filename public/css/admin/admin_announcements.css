@@ -1,0 +1,879 @@
+body {
+    background-color: #f7f7f7;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main container styling */
+.container.py-5 {
+    background: linear-gradient(135deg, #f7f7f7 80%, #d1daf0 100%);
+    border-radius: 18px;
+    box-shadow: 0 2px 16px rgba(3, 21, 64, 0.1);
+    padding: 2.5rem !important;
+    animation: fadeInUp 0.7s;
+    max-width: 1500px;
+    margin: 10px;
+    
+}
+
+/* Row layout improvements */
+.container.py-5>.row {
+    display: flex;
+    gap: 2rem;
+}
+
+/* Column sizing */
+.container.py-5>.row>.col-lg-6 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Card styling for consistency */
+.card {
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(3, 21, 64, 0.13);
+    border: none;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card>.card-body {
+    background: #fff;
+    border-radius: 24px;
+    padding: 1.75rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Action buttons container */
+.d-flex.justify-content-end.mb-3 {
+    margin-bottom: 1rem !important;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+/* Category container */
+.category-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Scrollable list */
+.scrollable-list {
+    flex: 1;
+    min-height: 350px;
+    max-height: 350px;
+    overflow-y: auto;
+    padding: 0.75rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: inset 0 0 8px rgba(3, 21, 64, 0.05);
+    border: 1px solid rgba(3, 21, 64, 0.1);
+}
+
+/* Section headers */
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.2rem;
+    height: 50px;
+}
+
+.section-header h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0;
+    font-weight: 700;
+    color: #031540;
+    /* Darker blue for headers */
+}
+
+/* Fix for section headers and icons with text-primary class */
+.text-primary {
+    color: #031540 !important;
+    /* Override Bootstrap's text-primary color */
+}
+
+.fas.text-primary {
+    color: #031540 !important;
+    /* Ensure icons match the darker blue */
+}
+
+/* Add/Edit buttons */
+.btn-add-announcement {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.45rem 1.2rem;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #0d47a1 60%, #031540 100%);
+    /* Darker blue gradient */
+    color: #fff;
+    border: none;
+    box-shadow: 0 2px 8px rgba(3, 21, 64, 0.15);
+    transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+    min-width: 180px;
+    height: 42px;
+}
+
+.btn-add-announcement:hover {
+    background: linear-gradient(90deg, #031540 60%, #0d47a1 100%);
+    box-shadow: 0 4px 16px rgba(3, 21, 64, 0.25);
+    color: #fff;
+    transform: translateY(-2px) scale(1.03);
+}
+
+.btn-add-announcement i {
+    font-size: 1.1em;
+}
+
+/* Announcement item */
+.announcement-item {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(3, 21, 64, 0.07);
+    border-left: 5px solid #0d47a1;
+    /* Darker blue accent */
+    margin-bottom: 0.7rem;
+    padding: 1rem;
+    position: relative;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    animation: fadeIn 0.5s;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.announcement-item:hover {
+    box-shadow: 0 8px 32px rgba(3, 21, 64, 0.13);
+    border-left: 5px solid #031540;
+    /* Even darker blue on hover */
+}
+
+.announcement-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #031540;
+    /* Darker blue for titles */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.announcement-title::before {
+    content: '\f0a1';
+    /* fa-bullhorn */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: #0d47a1;
+    /* Darker blue for icon */
+    margin-right: 0.5rem;
+    font-size: 1.1em;
+}
+
+.announcement-meta {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+}
+
+.announcement-content {
+    color: #222;
+    margin: 0.5rem 0;
+    font-size: 0.97rem;
+    line-height: 1.6;
+    flex: 1;
+    white-space: pre-line;
+}
+
+.announcement-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    margin-top: 0.5rem;
+}
+
+.announcement-actions .btn {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    background: #d1daf0;
+    /* Lighter ocean blue background */
+    color: #031540;
+    /* Darker text color */
+    border: none;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 4px rgba(3, 21, 64, 0.07);
+}
+
+.announcement-actions .btn:hover {
+    background: #0d47a1;
+    /* Darker blue on hover */
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(3, 21, 64, 0.18);
+}
+
+/* Event item styling to match announcements */
+.event-item {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(3, 21, 64, 0.07);
+    border-left: 5px solid #1565C0;
+    /* Darker blue for events */
+    margin-bottom: 0.7rem;
+    padding: 1rem;
+    position: relative;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    animation: fadeIn 0.5s;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.event-item:hover {
+    box-shadow: 0 8px 32px rgba(3, 21, 64, 0.13);
+    border-left: 5px solid #0D47A1;
+    /* Even darker blue on hover */
+}
+
+.event-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0D47A1;
+    /* Darker blue for titles */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.event-title::before {
+    content: '\f133';
+    /* fa-calendar */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: #1565C0;
+    /* Darker blue for icon */
+    margin-right: 0.5rem;
+    font-size: 1.1em;
+}
+
+.event-meta {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+}
+
+.event-description {
+    color: #222;
+    margin: 0.5rem 0;
+    font-size: 0.97rem;
+    line-height: 1.6;
+    flex: 1;
+    white-space: pre-line;
+}
+
+.event-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    margin-top: 0.5rem;
+}
+
+.event-actions .btn {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    background: #d1daf0;
+    /* Lighter ocean blue background */
+    color: #0D47A1;
+    /* Darker text color */
+    border: none;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 4px rgba(3, 21, 64, 0.07);
+}
+
+.event-actions .btn:hover {
+    background: #1565C0;
+    /* Darker blue on hover */
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(3, 21, 64, 0.18);
+}
+
+
+/* Modal Overlay */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1050;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    animation: fadeIn 0.3s ease;
+    overflow-y: auto;
+    padding: 100px 5px 5px;
+    margin-right: 5px;
+}
+
+.modal.show {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Modal Content Container */
+.modal-content {
+    background-color: #ffffff;
+    margin: auto;
+    padding: 10px;
+    border: none;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.3s ease;
+    position: relative;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Modal Header */
+.modal-content h2 {
+    background-color: #f8f9fa;
+    color: #060E57;
+    font-weight: 600;
+    font-size: 22px;
+    padding: 20px 24px;
+    margin: 0;
+    border-bottom: 1px solid #e9ecef;
+    border-radius: 12px 12px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.modal-content h2 i {
+    color: #2563eb;
+}
+
+/* Close Button */
+.close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: #6c757d;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 1;
+    background: transparent;
+    border: none;
+    padding: 0;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close:hover,
+.close:focus {
+    color: #dc3545;
+    transform: rotate(90deg);
+}
+
+/* Modal Form */
+.modal-content form {
+    padding: 24px;
+}
+
+/* Form Groups */
+.modal-content .mb-3 {
+    margin-bottom: 20px;
+}
+
+.modal-content .row.mb-3 {
+    margin-bottom: 20px;
+}
+
+/* Form Labels */
+.modal-content .form-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #374151;
+    font-size: 15px;
+}
+
+/* Form Controls (Input, Textarea, Select) */
+.modal-content .form-control {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background-color: white;
+    color: #1f2937;
+}
+
+.modal-content .form-control:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    outline: none;
+}
+
+.modal-content .form-control::placeholder {
+    color: #9ca3af;
+}
+
+/* Textarea Specific */
+.modal-content textarea.form-control {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Select Dropdown */
+.modal-content .form-select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background-color: white;
+    color: #1f2937;
+    cursor: pointer;
+}
+
+.modal-content .form-select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    outline: none;
+}
+
+/* Date and Time Inputs */
+.modal-content input[type="date"],
+.modal-content input[type="time"] {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.modal-content input[type="date"]:focus,
+.modal-content input[type="time"]:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    outline: none;
+}
+
+/* Form Value Display (Read-only fields) */
+.modal-content .form-value {
+    width: 100%;
+    padding: 12px 16px;
+    background-color: #f9fafb;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #6b7280;
+    display: block;
+}
+
+/* Button Container */
+.modal-content .text-end {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #e9ecef;
+}
+
+/* Modal Buttons */
+.modal-content .btn {
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    font-size: 15px;
+    min-width: 120px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.modal-content .btn-add-announcement {
+    background-color: #2563eb;
+    color: white;
+}
+
+.modal-content .btn-add-announcement:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.modal-content .btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.modal-content .btn-secondary:hover {
+    background-color: #5c636a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+}
+
+/* Icon in Buttons */
+.modal-content .btn i {
+    font-size: 14px;
+}
+
+/* Row Layout for Date/Time */
+.modal-content .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -8px;
+    margin-right: -8px;
+}
+
+.modal-content .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+/* Responsive Design */
+
+
+
+
+/* Additional Enhancement: Focus States */
+.modal-content .form-control:disabled,
+.modal-content .form-control:read-only {
+    background-color: #f3f4f6;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Error State (for form validation) */
+.modal-content .form-control.is-invalid {
+    border-color: #dc3545;
+}
+
+.modal-content .form-control.is-invalid:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+/* Success State (for form validation) */
+.modal-content .form-control.is-valid {
+    border-color: #198754;
+}
+
+.modal-content .form-control.is-valid:focus {
+    border-color: #198754;
+    box-shadow: 0 0 0 3px rgba(25, 135, 84, 0.1);
+}
+
+/* Footer Styles */
+footer {
+    background-color: #060E57;
+    padding: 30px 0;
+    text-align: center;
+    color: #ffffff;
+    width: 100%;
+    margin-top: auto;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.copyright {
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.team-members {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.team-members span {
+    position: relative;
+}
+
+.team-members span:not(:last-child):after {
+    content: "•";
+    position: absolute;
+    right: -12px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .container.py-5>.row {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .scrollable-list {
+        min-height: 250px;
+        max-height: 250px;
+    }
+
+    .card>.card-body {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container.py-5 {
+        padding: 1.5rem !important;
+    }
+
+    header {
+        padding: 15px 20px;
+    }
+
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo-title-container {
+        margin-bottom: 15px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    h1 {
+        margin: 15px 0 0 0;
+        font-size: 22px;
+        text-align: center;
+    }
+
+
+    .team-members {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .team-members span:not(:last-child):after {
+        display: none;
+    }
+
+    .section-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .btn-add-announcement {
+        min-width: 150px;
+        font-size: 0.9rem;
+    }
+
+    .scrollable-list {
+        min-height: 200px;
+        max-height: 200px;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 20px auto;
+        border-radius: 12px;
+    }
+    
+    .modal-content h2 {
+        font-size: 20px;
+        padding: 16px 20px;
+    }
+    
+    .modal-content form {
+        padding: 20px;
+    }
+    
+    .close {
+        right: 16px;
+        top: 16px;
+        font-size: 24px;
+    }
+    
+    .modal-content .col-md-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 16px;
+    }
+    
+    .modal-content .text-end {
+        flex-direction: column;
+    }
+    
+    .modal-content .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    
+    .container.py-5 {
+        padding: 1.5rem !important;
+    }
+
+    header {
+        padding: 15px 20px;
+    }
+
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo-title-container {
+        margin-bottom: 15px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    h1 {
+        margin: 15px 0 0 0;
+        font-size: 22px;
+        text-align: center;
+    }
+
+
+    .team-members {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .team-members span:not(:last-child):after {
+        display: none;
+    }
+
+    .section-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .btn-add-announcement {
+        min-width: 150px;
+        font-size: 0.9rem;
+    }
+
+    .scrollable-list {
+        min-height: 200px;
+        max-height: 200px;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 20px auto;
+        border-radius: 12px;
+    }
+    
+    .modal-content h2 {
+        font-size: 20px;
+        padding: 16px 20px;
+    }
+    
+    .modal-content form {
+        padding: 20px;
+    }
+    
+    .close {
+        right: 16px;
+        top: 16px;
+        font-size: 24px;
+    }
+    
+    .modal-content .col-md-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 16px;
+    }
+    
+    .modal-content .text-end {
+        flex-direction: column;
+    }
+    
+    .modal-content .btn {
+        width: 100%;
+    }
+}

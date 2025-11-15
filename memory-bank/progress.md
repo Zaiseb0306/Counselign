@@ -1,0 +1,389 @@
+- **COMPLETED**: Comprehensive Last Activity Tracking Implementation
+  - **Feature**: Implemented comprehensive last_activity tracking across all student and counselor activities
+  - **Functionality**: Centralized UserActivityHelper class for consistent activity tracking
+  - **User Experience**: All user activities now properly update last_activity timestamp for accurate tracking
+  - **Type Safety**: Clean, descriptive code with comprehensive error handling and logging
+  - **Activity Coverage**: Authentication, messaging, appointments, follow-ups, profiles, PDS, notifications
+  - **Role-based Tracking**: Separate methods for students, counselors, and admins with appropriate activity types
+  - **Error Handling**: Comprehensive error handling with proper logging and fallback mechanisms
+  - **Files Modified**:
+    - `app/Helpers/UserActivityHelper.php` - New centralized helper class
+    - `app/Controllers/Auth.php` - Login and verification tracking
+    - `app/Controllers/Logout.php` - Logout tracking
+    - `app/Controllers/UpdatePassword.php` - Password change tracking
+    - `app/Controllers/ForgotPassword.php` - Password reset tracking
+    - `app/Controllers/Student/Message.php` - Student messaging tracking
+    - `app/Controllers/Counselor/Message.php` - Counselor messaging tracking
+    - `app/Controllers/Student/Appointment.php` - Student appointment tracking
+    - `app/Controllers/Admin/Appointments.php` - Admin appointment management tracking
+    - `app/Controllers/Counselor/Appointments.php` - Counselor appointment tracking
+    - `app/Controllers/Counselor/FollowUp.php` - Follow-up appointment tracking
+    - `app/Controllers/Student/Profile.php` - Student profile tracking
+    - `app/Controllers/Counselor/Profile.php` - Counselor profile tracking
+    - `app/Controllers/Admin/AdminProfileApi.php` - Admin profile tracking
+    - `app/Controllers/Student/PDS.php` - PDS save tracking
+    - `app/Controllers/Student/Notifications.php` - Student notification tracking
+    - `app/Controllers/Counselor/Notifications.php` - Counselor notification tracking
+  - **Key Features**:
+    - Centralized UserActivityHelper class with type-safe methods
+    - Role-specific activity tracking (student, counselor, admin)
+    - Comprehensive activity types for different user actions
+    - Batch update capabilities for multiple users
+    - Activity validation and user existence checking
+    - Comprehensive error handling and logging
+    - Type-safe coding with clear variable names and proper error handling
+    - No ambiguous or spaghetti code patterns
+    - Maintains existing functionality while adding comprehensive tracking
+
+ - **COMPLETED**: Added default admin account via seeder
+   - Implemented `app/Database/Seeds/AdminSeeder.php` to create/update admin user
+   - Admin details: user_id `0000000001`, role `admin`, email `systemsample13@gmail.com`
+   - Password stored as secure hash for "Counselign@2025"; user marked verified
+   - Executed seeder with `php spark db:seed AdminSeeder`
+
+- **COMPLETED**: Counselor Personal Info Default Values and INSERT Function
+  - **Feature**: Fixed counselor personal info default values and INSERT functionality for first-time users
+  - **Functionality**: Set default "N/A" values for personal info inputs on first-time adding
+  - **User Experience**: Counselors now see "N/A" as default values instead of empty inputs when adding personal info for the first time
+  - **Type Safety**: Clean, descriptive code with comprehensive error handling and validation
+  - **INSERT Function**: Verified and enhanced INSERT functionality for counselor personal info
+  - **Validation**: Added comprehensive validation for email, birthdate, contact number, and duplicate email checking
+  - **Error Handling**: Enhanced error handling with proper logging and user-friendly messages
+  - **Files Modified**:
+    - `public/js/counselor/counselor_profile.js` - Enhanced default value handling and form submission
+    - `app/Controllers/Counselor/Profile.php` - Enhanced validation, error handling, and INSERT functionality
+  - **Key Features**:
+    - Default "N/A" values for first-time personal info entry
+    - Comprehensive validation with specific error messages
+    - Duplicate email checking for counselor personal info
+    - Enhanced error handling with try-catch blocks and logging
+    - Safe handling of optional fields like specialization
+    - Type-safe coding with clear variable names and proper error handling
+    - No ambiguous or spaghetti code patterns
+    - Maintains existing functionality while adding new features
+
+- **COMPLETED**: Profile Email Validation Improvements
+  - **Feature**: Enhanced email validation across all profile update endpoints
+  - **Functionality**: Added specific duplicate email error messages with performance optimization
+  - **User Experience**: Clear, actionable error messages when attempting to use duplicate emails
+  - **Type Safety**: Clean, descriptive code with proper error handling patterns
+  - **Performance**: Duplicate checking only occurs when email is actually being changed
+  - **Implementation**: Consistent error message format across all profiles
+  - **Files Modified**:
+    - `app/Controllers/Counselor/Profile.php` - Enhanced `updateProfile()` method
+    - `app/Controllers/Student/Profile.php` - Enhanced `updateProfile()` method
+    - `app/Controllers/Admin/AdminProfileApi.php` - Updated error message consistency
+  - **Key Features**:
+    - Specific error message: "This email is already registered to another account"
+    - Performance optimization: Only check duplicates when email is changing
+    - Consistent error handling across counselor, student, and admin profiles
+    - Type-safe coding with clear variable names and proper error handling
+    - No ambiguous or spaghetti code patterns
+    - Maintains existing skipValidation approach for performance
+
+- **COMPLETED**: Student Schedule Appointment Counseling Consent Accordion Implementation
+  - **Feature**: Added comprehensive counseling informed consent accordion to appointment form
+  - **Functionality**: Bootstrap 5 accordion with complete legal consent form content
+  - **User Experience**: Professional consent form integration below description input
+  - **Design**: Royal blue gradient theme matching system aesthetics
+  - **Content**: Complete informed consent form with all required legal sections
+  - **Responsive**: Mobile-friendly design with adaptive sizing
+  - **Implementation**: Clean separation of HTML and CSS with type-safe coding
+  - **Files Modified**:
+    - `app/Views/student/student_schedule_appointment.php` - Added accordion HTML structure
+    - `public/css/student/student_schedule_appointment.css` - Added comprehensive styling
+  - **Key Features**:
+    - Professional Bootstrap 5 accordion with royal blue gradient theme
+    - Complete informed consent form with all legal requirements
+    - Collapsible design that doesn't interfere with form completion
+    - Clear visual hierarchy with icons and proper formatting
+    - Mobile-responsive layout with adaptive sizing
+    - Always visible and accessible (not hidden or conditional)
+    - Professional typography and spacing
+    - Custom list styling with proper indentation
+    - Highlighted sections with visual hierarchy
+Done:
+- **MAJOR FEATURE**: Implemented and refined counselor schedule display feature inside calendar drawers for student appointment pages:
+  - **API Endpoint**: Enhanced `getCounselorSchedules()` method in `app/Controllers/Student/Appointment.php` to fetch counselor availability data organized by weekday only
+  - **Route Configuration**: Added `GET student/get-counselor-schedules` route in `app/Config/Routes.php`
+  - **Frontend Implementation**: Enhanced both `student/schedule-appointment` and `student/my-appointments` pages with counselor schedule display inside existing calendar drawers
+  - **JavaScript Functionality**: Implemented drawer-based schedule loading with `setupCounselorSchedulesInDrawer()` function that loads schedules only when calendar drawer is opened
+  - **CSS Styling**: Added drawer-optimized styling with compact weekday cards, unique gradient backgrounds, and responsive design
+  - **Key Features**: Weekday-only organization (Monday-Friday), proper counselor names display, time slot badges, scrolling lists, error handling, performance optimization
+  - **User Experience**: Students can now view all counselors and their availability by weekday within the calendar drawer while maintaining existing page design
+  - **Type Safety**: Implemented with proper error handling and type-safe coding practices throughout
+  - **Files Modified**:
+    - `app/Controllers/Student/Appointment.php` - Enhanced `getCounselorSchedules()` method to return proper counselor names and weekday-only data
+    - `app/Config/Routes.php` - Added new route for counselor schedules
+    - `app/Views/student/student_schedule_appointment.php` - Added counselor schedules section inside calendar drawer
+    - `app/Views/student/my_appointments.php` - Added counselor schedules section inside calendar drawer
+    - `public/js/student/student_schedule_appointment.js` - Added drawer-based schedule loading functions with weekday-only display
+    - `public/js/student/my_appointments.js` - Added drawer-based schedule loading functions with weekday-only display
+    - `public/css/student/student_schedule_appointment.css` - Added drawer-optimized schedule styling with weekday-only gradients
+    - `public/css/student/my_appointments.css` - Added drawer-optimized schedule styling with weekday-only gradients
+- **MAJOR FEATURE**: Standardized counselor time_scheduled input to 12-hour format with meridian labels:
+  - **Frontend Updates**: Modified counselor profile JavaScript to handle 12-hour format throughout the availability system
+  - **Backend Updates**: Updated availability controllers to validate, store, and process 12-hour format time ranges
+  - **Database Storage**: Time_scheduled field now stores 12-hour format with proper meridian labels (AM/PM)
+  - **Display Consistency**: All availability displays show 12-hour format consistently across admin, counselor, and student views
+  - **Type Safety**: Maintained comprehensive error handling and validation with backward compatibility for existing data
+  - **Files Modified**: 
+    - `public/js/counselor/counselor_profile.js` - Updated time handling functions
+    - `app/Controllers/Counselor/Availability.php` - Added 12-hour format validation and processing
+    - `app/Controllers/Student/Appointment.php` - Enhanced time parsing for availability checking
+    - `app/Controllers/Admin/AdminsManagement.php` - Updated time slot availability checking
+- **MAJOR FEATURE**: Implemented comprehensive appointment conflict checking system for student scheduling and editing:
+  - **Model Enhancements**: Added conflict checking methods to both `AppointmentModel` and `FollowUpAppointmentModel`:
+    - `AppointmentModel::hasCounselorConflict()` - Checks for regular appointment conflicts on specific date/time
+    - `AppointmentModel::getCounselorConflicts()` - Returns detailed conflict information
+    - `FollowUpAppointmentModel::hasCounselorFollowUpConflict()` - Checks for follow-up appointment conflicts
+    - `FollowUpAppointmentModel::getCounselorFollowUpConflicts()` - Returns detailed follow-up conflict information
+    - Both methods support exclusion of specific appointment/follow-up IDs for edit scenarios
+  - **Controller Endpoints**: Added two new conflict checking endpoints in `app/Controllers/Student/Appointment.php`:
+    - `checkCounselorConflicts()` - For new appointment scheduling conflict checking
+    - `checkEditConflicts()` - For editing existing appointments conflict checking
+    - Both endpoints check both regular appointments and follow-up sessions for counselor conflicts
+    - Comprehensive error handling and logging for debugging
+  - **Route Configuration**: Added new routes to `app/Config/Routes.php`:
+    - `GET student/check-counselor-conflicts` → `Appointment::checkCounselorConflicts`
+    - `GET student/check-edit-conflicts` → `Appointment::checkEditConflicts`
+  - **Frontend Integration**: Enhanced both student scheduling and editing JavaScript:
+    - **Schedule Appointment**: Updated `public/js/student/student_schedule_appointment.js`:
+      - Added `checkCounselorConflicts()` function to check conflicts before form submission
+      - Added `showConflictModal()` function to display conflict messages to students
+      - Integrated conflict checking into form submission flow with proper error handling
+    - **Edit Appointment**: Updated `public/js/student/my_appointments.js`:
+      - Added `checkEditConflicts()` function to check conflicts before appointment updates
+      - Added `showEditConflictModal()` function for edit-specific conflict messages
+      - Integrated conflict checking into `updatePendingAppointment()` function
+  - **User Experience**: Professional conflict detection and messaging system:
+    - **Conflict Detection**: Checks for both pending and approved appointments/follow-ups at selected time slots
+    - **Modal System**: Professional Bootstrap-style modals with clear messaging and user-friendly interface
+    - **Conflict Types**: Distinguishes between regular appointment conflicts and follow-up session conflicts
+    - **User Guidance**: Clear instructions to choose different time slots or counselors when conflicts exist
+    - **Error Handling**: Comprehensive error handling with fallback messages for network issues
+  - **Type Safety**: Maintained comprehensive error handling and type-safe coding practices:
+    - Proper parameter validation and null checks throughout the implementation
+    - Clean separation of concerns between models, controllers, and frontend
+    - Comprehensive logging for debugging and monitoring
+    - Fallback handling for various error scenarios
+- **MAJOR FEATURE**: Implemented student follow-up sessions page with read-only functionality:
+  - **Student Dashboard Integration**: Updated "Follow Up Sessions" button in navbar drawer to link to dedicated follow-up sessions page
+  - **Controller**: Created `app/Controllers/Student/FollowUpSessions.php` with comprehensive API endpoints for viewing student's completed appointments and their follow-up sessions
+  - **Routes**: Added student follow-up routes to `app/Config/Routes.php` with proper student group namespace
+  - **View**: Created `app/Views/student/follow_up_sessions.php` with identical UI/UX to counselor version but without action buttons
+  - **JavaScript**: Implemented `public/js/student/follow_up_sessions.js` with read-only functionality and search capability
+  - **CSS**: Added comprehensive styling in `public/css/student/follow_up_sessions.css` matching counselor version
+  - **Key Features**: Display only the logged-in student's completed appointments, modal system for viewing existing follow-up sessions (read-only), search functionality, security validation, responsive design, type-safe coding
+  - **Security**: Students can only access their own appointments with proper validation in `getFollowUpSessions()`
+- **MAJOR FEATURE**: Added comprehensive search functionality to both admin and counselor follow-up sessions pages:
+  - **Search Interface**: Added search input with clear button in both counselor and admin follow-up sessions pages
+  - **Search Capabilities**: Users can search across multiple appointment fields (student info, appointment details, counselor name for admin)
+  - **Real-time Search**: Implemented debounced search (300ms delay) to avoid excessive API calls
+  - **Search Results**: Added dedicated "no search results" message when search yields no matches
+  - **Clear Search**: Added clear button that appears when search term is entered
+  - **Controller Updates**: Enhanced both `Counselor\FollowUp::getCompletedAppointments()` and `Admin\FollowUpSessions::getAllCompletedAppointments()` to handle search parameters
+  - **JavaScript Updates**: Updated both counselor and admin JavaScript files with search functionality and proper result handling
+  - **Type-Safe Implementation**: Maintained clean separation of concerns with proper error handling and logging
+- **MAJOR FEATURE**: Implemented admin follow-up sessions page with read-only functionality:
+  - **Admin Dashboard Integration**: Added "Follow-up Sessions" button next to "All Appointments" button with responsive behavior for both desktop and mobile layouts
+  - **Controller**: Created `app/Controllers/Admin/FollowUpSessions.php` with comprehensive API endpoints for viewing all completed appointments and their follow-up sessions
+  - **Routes**: Added admin follow-up routes to `app/Config/Routes.php` with proper admin group namespace
+  - **View**: Created `app/Views/admin/follow_up_sessions.php` with identical UI/UX to counselor version but without action buttons
+  - **JavaScript**: Implemented `public/js/admin/follow_up_sessions.js` with read-only functionality (no create/cancel/complete buttons)
+  - **CSS**: Added comprehensive styling in `public/css/admin/follow_up_sessions.css` matching counselor version
+  - **Key Features**: Display ALL completed appointments from all counselors, modal system for viewing existing follow-up sessions (read-only), responsive design, type-safe coding
+  - **Admin vs Counselor Logic**: Admin shows ALL completed appointments while counselor shows only their own completed appointments
+  - **Read-Only Design**: Admin can view but cannot modify follow-up sessions, maintaining proper role separation
+- Added appointment eligibility gate on student schedule page:
+   - Model: `AppointmentModel::hasApprovedAppointment()` to detect approved upcoming appointments
+   - Controller: `Student\Appointment::checkAppointmentEligibility()` returns `{ status, hasPending, hasApproved, allowed }`
+   - Route: `GET student/check-appointment-eligibility` in `app/Config/Routes.php`
+   - Frontend: Updated `public/js/student/student_schedule_appointment.js` to call eligibility endpoint and disable form when pending or approved exists
+ - Eligibility extended to follow-ups:
+   - Model: `FollowUpAppointmentModel::hasPendingFollowUp()`
+   - Controller: eligibility response now includes `hasPendingFollowUp` and blocks when true
+   - Frontend: shows message “You have a pending follow-up session...” and disables form
+   - Type-safe coding; minimal changes isolated to related files
+- **MAJOR FEATURE**: Implemented complete follow-up appointments system for counselors:
+  - **Controller**: Created `app/Controllers/Counselor/FollowUp.php` with comprehensive API endpoints
+  - **Routes**: Added 5 new follow-up routes to `app/Config/Routes.php`
+  - **View**: Enhanced `app/Views/counselor/follow_up.php` with complete UI including modals
+  - **JavaScript**: Implemented `public/js/counselor/follow_up.js` with full functionality
+  - **CSS**: Added comprehensive styling in `public/css/counselor/follow_up.css`
+  - **Key Features**:
+    - Display completed appointments in card format for logged-in counselor
+    - Modal system for viewing existing follow-up sessions
+    - Dynamic time slot filtering based on counselor availability
+    - Sequential follow-up creation with proper numbering (1st, 2nd, 3rd, etc.)
+    - Parent-child relationship maintenance between appointments and follow-ups
+    - Responsive design with mobile-friendly layout
+    - Type-safe coding with comprehensive error handling
+- Signup verification token shortened and standardized:
+  - `UserModel::generateVerificationToken()` now returns 6-character uppercase alphanumeric tokens.
+  - Keeps type-safe, readable implementation using `random_int` for cryptographic randomness.
+  - Verified compatibility with `Auth::signup`, `Auth::verifyAccount`, and `Auth::resendVerificationEmail`.
+- Verification modal UX improved to 6-box token input:
+  - View updated (`app/Views/auth/verification_prompt.php`) to six single-character inputs.
+  - JS updated (`public/js/auth/verification_prompt.js`) to auto-advance, uppercase, paste fill, and submit combined token.
+  - CSS added (`public/css/auth/verification_prompt.css`) for layout and focus styles.
+- **MAJOR FEATURE**: Implemented counselor schedule display in admin counselor-info page:
+  - Created `admin/counselor-info/schedule` API endpoint to fetch counselor availability by counselor_id
+  - Modified admin counselor-info view to display "Time Scheduled" and "Available Days" fields
+  - Enhanced JavaScript with dynamic schedule loading based on selected counselor
+  - Added proper error handling and type-safe coding practices
+  - Schedule information now shows real-time data from counselor_availability table
+- Implemented counselor notifications controller and routes
+- Corrected notifications model filters (appointments by student_id, counselor IDs for messages)
+- Updated counselor dashboard JS endpoints
+
+- Added admin scheduled calendar identical to counselor:
+  - View `app/Views/admin/scheduled_appointments.php` now includes right sidebar mini-calendar (`csq-layout`).
+  - JS `public/js/admin/scheduled_appointments.js` renders calendar and highlights days with approved appointments using admin endpoint.
+  - CSS already supported calendar styles via `public/css/admin/scheduled_appointments.css`.
+
+Pending:
+- Manual verification on dashboards
+- Test admin counselor-info schedule display functionality
+
+Known Issues:
+- None observed after static review
+Done
+- **MAJOR COMPLETION**: Comprehensive messaging system between students and counselors:
+  - **Student Side**: Counselor selection modal with search functionality, conversation history loading, messages sent to selected counselor
+  - **Counselor Side**: Student selection modal with search functionality, conversation history loading, messages sent to selected student
+  - **API Endpoints**: Enhanced message operations for counselor-student messaging with proper filtering
+  - **User Experience**: Facebook Messenger-like interface with selection modals, responsive design, real-time updates
+  - **Type Safety**: Comprehensive error handling and type-safe coding practices throughout
+- Counselor duplicates created for appointments (index, view-all, scheduled) and history reports.
+- New counselor routes added and documented.
+- Views, JS, and CSS set up under counselor namespaces.
+- **MAJOR FEATURE**: Implemented counselor availability filtering system for student appointment scheduling:
+  - Created `student/get-counselors-by-availability` API endpoint with date/time filtering
+  - Enhanced JavaScript with real-time counselor filtering based on selected date and time
+  - Added proper error handling and type-safe coding practices
+  - Displays appropriate message when no counselors available for selected date/time
+
+Pending
+- End-to-end test as counselor user for all new pages and API endpoints.
+
+Known Issues
+- None observed; ensure environment base_url and session role enforcement behave consistently.
+
+### Recent Bug Fixes
+- **CRITICAL FIX**: Counselor history reports data filtering bug:
+  - **Issue**: Counselor history reports were showing data from ALL counselors instead of only the logged-in counselor
+  - **Root Cause Analysis**: 
+    - **Primary Issue**: JavaScript was calling the WRONG endpoint - `admin/history-reports/historical-data` instead of `counselor/history-reports/historical-data`
+    - **Secondary Issue**: Missing counselor filtering in both `getHistoryData()` and `getHistoricalData()` methods in `HistoryReports` controller
+  - **Security Impact**: Data privacy violation - counselors could see other counselors' appointment data
+  - **Data Accuracy Impact**: Incorrect data visualization and reporting for individual counselors
+  - **Solution**: 
+    - **Frontend Fix**: Changed JavaScript endpoint from `admin/history-reports/historical-data` to `counselor/history-reports/historical-data`
+    - **Backend Fix**: Added proper counselor filtering to match the working pattern from `GetAllAppointments` controller
+  - **Files Modified**: 
+    - `public/js/counselor/history_reports.js` - Fixed endpoint URL
+    - `app/Controllers/Counselor/HistoryReports.php` - Added counselor filtering
+  - **Result**: Both frontend and backend now properly work together to show only data for the logged-in counselor
+- **CRITICAL FIX**: Admin appointments data rendering issues:
+  - **Issue**: Both `admin/appointments` and `admin/appointments/scheduled` pages were returning 500 Internal Server Errors
+  - **Root Causes**: 
+    - Complex SQL queries with JOINs causing database errors in `getAll()` and `getScheduledAppointments()` methods
+    - Missing error handling and try-catch blocks in controller methods
+    - Incorrect endpoint call in JavaScript (`counselor/get_scheduled_appointments` - non-existent endpoint)
+    - **Database Column Issues**: `u.name` column reference in Student/Notifications.php (column doesn't exist in users table)
+  - **Solution**: 
+    - Simplified SQL queries to prevent JOIN-related errors
+    - Added comprehensive try-catch blocks with proper error logging
+    - Removed incorrect endpoint call from JavaScript
+    - Added COALESCE functions for safe data handling
+    - **Fallback Query System**: Added robust fallback mechanism for JOIN failures
+    - **Database Column Fix**: Changed `u.name` to `u.username` in Student/Notifications.php
+    - Improved error messages and debugging capabilities
+  - **Files Modified**:
+    - `app/Controllers/Admin/Appointments.php`: Fixed `getAll()` and `getScheduledAppointments()` methods with Query Builder approach
+    - `app/Controllers/Student/Notifications.php`: Fixed database column reference from `u.name` to `u.username`
+    - `public/js/admin/scheduled_appointments.js`: Removed incorrect endpoint call and improved calendar integration
+  - **Final Solution**: Exact counselor pattern - copied working raw SQL query but removed WHERE clause for admin (shows ALL appointments)
+  - **Result**: Both admin appointments pages now load data correctly without 500 errors
+- **CRITICAL FIX**: Schedule appointment button loading state bug:
+  - **Issue**: Schedule appointment button was showing "Processing..." loading state on page load instead of only when clicked
+  - **Root Cause**: Missing `.hidden` CSS class definition and improper button state initialization
+  - **Solution**: Added `.hidden` class to CSS and created `initializeButtonState()` function to ensure proper initial state
+  - **Implementation**: 
+    - Added `.hidden { display: none !important; }` to `public/css/student/student_schedule_appointment.css`
+    - Created `initializeButtonState()` function in `public/js/student/student_schedule_appointment.js`
+    - Called initialization function early in DOMContentLoaded event to prevent loading state on page load
+    - Ensured button starts in normal state (submit text visible, loading indicator hidden, button enabled)
+  - **Result**: Button now only shows loading state when actually clicked, maintaining proper UX flow
+- **CRITICAL FIX**: PWD proof file deletion bug in student profile PDS system:
+  - **Issue**: Existing PWD proof files were being deleted when updating other profile information (name, course, etc.)
+  - **Root Cause**: `handlePWDProofUpload()` method returned 'N/A' when no new file was uploaded, overwriting existing file paths
+  - **Solution**: Modified method to preserve existing files when no new file is uploaded
+  - **Implementation**: Added `getExistingPWDProofFile()` helper method to retrieve current file path from database
+  - **Result**: PWD proof files now persist correctly during profile updates unless explicitly replaced
+
+## Progress
+
+### What works (observed)
+- CodeIgniter 4 app structure with controllers, models, views
+- Admin and user assets present
+- Database seed SQL exists (`ugcsystem.sql`)
+- Landing header drawer replicated on `user_profile` with responsive toggler and overlay
+- **NEW**: Consistent modal system implemented across user dashboard:
+  - Confirmation modals for user actions (logout, etc.)
+  - Alert modals for error/success/warning messages
+  - Notice modals for informational messages
+  - All `window.alert()` and `window.confirm()` calls replaced with styled Bootstrap modals
+  - Enhanced error handling with proper user feedback
+- **ESTABLISHED**: Frontend code separation standard - HTML, CSS, and JavaScript must always be in separate files and folders for consistency and maintainability
+- **NEW**: Modal system extended to user profile page:
+  - All `window.alert()` and `window.confirm()` calls replaced with styled Bootstrap modals
+  - Consistent modal experience across user dashboard and profile pages
+  - Enhanced user feedback with appropriate modal types (success/error/warning/info)
+  - Profile validation, updates, password changes, and error handling all use modals
+- **FIXED**: Modal responsiveness bug in user profile page:
+  - Resolved issue where page became unresponsive after closing modals
+  - Implemented proper Bootstrap modal instance management and disposal
+  - Added cleanup functions to prevent modal conflicts and memory leaks
+- **CRITICAL FIX**: Logout confirmation modal cancellation bug:
+  - Fixed issue where page became unresponsive after cancelling logout confirmation
+  - Added proper event listeners for Cancel button and all modal close events
+  - Implemented automatic cleanup when modals are closed via any method (ESC, click outside, etc.)
+  - Restored scroll functionality and page responsiveness after modal cancellation
+- **MAJOR COMPLETION**: Services page fully responsive design:
+  - **Header**: Mobile drawer navigation system with toggle button, overlay, and responsive breakpoints
+  - **Grid Layouts**: Responsive CSS Grid for service cards (3→2→1 columns) and support programs (4→3→2→1 columns)
+  - **Typography**: Responsive font scaling across 5 breakpoints (1200px+, 992-1199px, 768-991px, 480-767px, <480px)
+  - **Content**: Responsive padding, margins, and spacing for all sections
+  - **Mobile Navigation**: Drawer functionality with JavaScript controls and keyboard support (ESC key)
+  - **Landscape Support**: Special responsive rules for mobile landscape orientation
+  - **Code Structure**: Replaced inline styles with CSS classes for maintainability
+- **NEW COMPLETION**: Counselor profile page implementation:
+Bug Fixes (Latest):
+- Fixed counselor rejection reason modal auto-closing and auto-rejecting:
+  - Removed auto-reject click binding from `updateModalButtons()` in `public/js/counselor/appointments.js`.
+  - Rejection now requires reason input and confirmation before `updateAppointmentStatus` with reason.
+  - Prevents accidental rejections and preserves user-entered reason reliably.
+  - **Complete Duplicate**: Created counselor profile page as exact duplicate of user profile page
+  - **Course/Year Removal**: Removed course and year input/display fields (counselor-specific modification)
+  - **Home Button Fix**: Home button correctly links to counselor dashboard instead of user dashboard
+  - **Backend Integration**: Full backend support with counselor-specific routes and controller
+  - **File Structure**: Proper separation of HTML, CSS, and JavaScript following established standards
+  - **Navigation**: Updated counselor dashboard profile button to link to counselor profile page
+
+### Unknowns
+- Current runtime status on local environment
+- Database migrations vs SQL snapshot alignment
+
+### Known issues
+- Resolved: POST http://localhost/counselign/public/auth/signup 404 (Not Found) due to missing 'index.php' in fetch URL from `public/js/landing.js` and incorrect method.
+
+### Next milestones
+- Verify auth/session behavior end-to-end
+- Map appointments lifecycle and confirm data model
+- Document API endpoints and request/response contracts
+
+- Validate header/menu behavior across user pages (dashboard, profile)
+
+

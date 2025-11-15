@@ -1,0 +1,750 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f0f4f8;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Main content area */
+main {
+    padding: 40px 20px;
+    flex-grow: 1;
+    background-color: #f0f4f8;
+    position: relative;
+}
+
+/* Limit height and enable vertical-only inner scroll for the right profile details */
+.scroll-inner {
+    max-height: 600px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Availability chips */
+.day-section {
+    margin-bottom: 12px;
+}
+
+.day-section-title {
+    font-weight: 600;
+    color: #060E57;
+    margin: 6px 0;
+}
+
+.slot-chip {
+    display: inline-flex;
+    align-items: center;
+    background-color: #0A1875;
+    color: #fff;
+    border-radius: 8px;
+    padding: 6px 10px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.slot-chip .chip-remove {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    margin-left: 8px;
+    border: none;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #0A1875;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+}
+
+.availability-actions {
+    margin-top: 14px;
+}
+
+.availability-actions .btn {
+    background-color: #060E57;
+    color: white;
+}
+
+.availability-actions .btn:hover {
+    background-color: #0A1875;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(6, 14, 87, 0.2);
+    color: white !important;
+}
+
+/* Grey cancel button that overrides the availability-actions defaults */
+.availability-actions .btn.btn-cancel {
+    background-color: #6c757d;
+    color: #ffffff;
+}
+
+.availability-actions .btn.btn-cancel:hover {
+    background-color: #5c636a;
+    color: #ffffff !important;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Account ID display at the top */
+.account-id-display {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.account-id-display .user-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: #060E57;
+    margin-bottom: 0;
+}
+
+/* Enhanced profile container */
+.profile-container {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 14, 87, 0.08);
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.profile-header {
+    background: linear-gradient(135deg, #060E57 0%, #4169E1 100%);
+    color: white;
+    padding: 10px 5px 25px;
+    text-align: center;
+    position: relative;
+}
+
+.profile-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: white;
+    border-radius: 50% 50% 0 0;
+}
+
+/* Enhanced profile avatar */
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+    border: 5px solid white;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 10;
+    background-color: white;
+    transform: translateY(50%);
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.profile-avatar:hover img {
+    transform: scale(1.1);
+}
+
+/* User details section */
+.profile-details {
+    padding: 70px 30px 30px;
+    text-align: center;
+}
+
+.user-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: #060E57;
+    margin-bottom: 5px;
+}
+
+.user-id {
+    color: #0356fb;
+    font-size: 20px;
+    margin-bottom: 0px;
+}
+
+/* Styled form */
+.profile-form {
+    background-color: #f8fafd;
+    border-radius: 12px;
+    padding: 30px;
+    margin-top: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.form-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #060E57;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #374151;
+    font-size: 15px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 6px 10px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+.form-input:focus {
+    border-color: #4169E1;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(65, 105, 225, 0.1);
+}
+
+.form-input:read-only {
+    background-color: #f9fafb;
+    cursor: not-allowed;
+}
+
+.form-value {
+    padding: 12px 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #495057;
+    margin-top: 5px;
+    border: 1px solid #e9ecef;
+}
+
+/* Enhanced buttons */
+.btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    font-size: 15px;
+    flex: 1;
+    min-width: 160px;
+    margin: 0 !important;
+}
+
+.btn-update {
+    background-color: #060E57;
+    color: white;
+}
+
+.btn-update:hover {
+    background-color: #0A1875;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(6, 14, 87, 0.2);
+    color: white !important;
+}
+
+/* Smaller Add button in availability section */
+#add-time-slot.btn {
+    padding: 7px 12px;
+    font-size: 16px;
+    min-width: 110px;
+}
+
+.btn-logout {
+    background-color: #ffffff;
+    color: rgb(61, 59, 59);
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: center; /* Ensure it's a flex container */
+    align-items: center; /* Vertically align items */
+    gap: 8px; /* Space between icon and text */
+}
+
+.btn-logout:hover {
+    background-color: #c82333;
+}
+
+.btn-logout i {
+    margin-right: 5px;
+}
+
+.btn-password {
+    background-color: #2563eb;
+    color: white;
+}
+
+.btn-password:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+    color: white !important;
+}
+
+/* Password visibility toggle button */
+.input-group .btn-outline-secondary {
+    border-color: #e5e7eb;
+}
+
+.input-group .btn-outline-secondary:hover {
+    background-color: #f3f4f6;
+    border-color: #d1d5db;
+}
+
+.input-group .btn-outline-secondary:focus {
+    box-shadow: none;
+    border-color: #2563eb;
+}
+
+footer {
+    background-color: #060E57;
+    padding: 30px 0;
+    text-align: center;
+    color: #ffffff;
+    width: 100%;
+    margin-top: auto;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.copyright {
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.team-members {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.team-members span {
+    position: relative;
+}
+
+.team-members span:not(:last-child):after {
+    content: "•";
+    position: absolute;
+    right: -12px;
+}
+
+.team-members a {
+    font-family: 'Roboto', Arial, sans-serif; /* Custom font */
+    font-size: 1.1rem; /* Custom font size */
+    color: #f2f5f8; /* Custom font color (e.g., Bootstrap primary blue) */
+    font-weight: 600; /* Semi-bold */
+    text-decoration: none; /* Remove default underline */
+    transition: color 0.3s ease, text-decoration 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Style for when the link is hovered */
+.team-members a:hover {
+    color: #086afc; /* Darker blue on hover */
+    text-decoration: underline; /* Add underline on hover */
+}
+
+/* If you need to specifically style the span inside the link, you can do this: */
+.team-members a span {
+    /* These styles would override the <a> tag's styles for the text within the span */
+    /* For example, if you wanted a different font weight only for the span content */
+    font-weight: normal; /* Make span text normal weight even if link is bold */
+}
+
+
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .container-fluid {
+        padding-left: 0 !important; /* Zero out container-fluid padding */
+        padding-right: 0 !important; /* Zero out container-fluid padding */
+    }
+
+    .header-container {
+        padding: 0 5px !important; /* Minimal padding for header container */
+    }
+
+    .header-container .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .header-container .row .col-md-3 {
+        flex: 0 0 100px !important; /* Fixed width for logo/title */
+        max-width: 100px !important;
+        padding-left: 0 !important; /* Zero out column padding */
+        padding-right: 0 !important; /* Zero out column padding */
+    }
+
+    .header-container .row .col-md-9 {
+        flex: 0 0 calc(100% - 120px) !important; /* Take remaining space precisely */
+        min-width: 0 !important;
+        padding-left: 0 !important; /* Zero out column padding */
+        padding-right: 0 !important; /* Zero out column padding */
+        display: flex !important;
+        justify-content: flex-end !important;
+        align-items: center !important;
+    }
+
+    .custom-navbar-toggler {
+        margin-left: auto !important;
+        order: 2;
+    }
+
+    .logo-title-container {
+        margin-bottom: 0 !important;
+    }
+
+    h1 {
+        margin: 0 !important;
+        text-align: left !important;
+        font-size: 1.1rem !important;
+        white-space: nowrap !important;
+    }
+
+    /* Hide standard nav elements completely on small screens */
+    nav {
+        display: none !important;
+    }
+}
+
+/* Modal Styles */
+.modal-content {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+    border-radius: 12px 12px 0 0;
+    padding: 20px;
+}
+
+.modal-title {
+    color: #060E57;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.modal-title i {
+    color: #2563eb;
+}
+
+.modal-body {
+    padding: 24px;
+}
+
+/* Password Field Styles */
+.password-field {
+    position: relative;
+}
+
+.password-field .form-label {
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.password-input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-input-group .form-control {
+    padding: 6px 20px 6px 8px;
+    border: 2px solid #55575c;
+    border-radius: 8px;
+    font-size: 15px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.form-control {
+    padding: 6px 20px 6px 8px;
+    border: 2px solid #55575c;
+    border-radius: 8px;
+    font-size: 15px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.modal-body .form-select {
+    border: 1px solid #55575c;
+    border-radius: 0.5rem;
+    padding: 0.50rem .75rem;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.modal-body .form-select:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+}
+
+.modal-body .form-value {
+    border: 1px solid #55575c;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.modal-body .form-value:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+}
+
+.password-input-group .form-control:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    outline: none;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #000000;
+    cursor: pointer;
+    padding: 4px;
+    transition: all 0.2s ease;
+    font-size: 20px; /* ensures FA eye icon size */
+}
+
+.toggle-password:hover {
+    color: #2563eb;
+}
+
+/* Ensure the image-based hide icon matches FA eye size */
+.toggle-password.custom-hide-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.modal-footer {
+    border-top: 1px solid #e9ecef;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.modal-footer .btn {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 500;
+    min-width: 100px;
+}
+
+.modal-footer .btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.modal-footer .btn-secondary:hover {
+    background-color: #5c636a;
+}
+
+.modal-footer .btn-primary {
+    background-color: #2563eb;
+}
+
+.modal-footer .btn-primary:hover {
+    background-color: #1d4ed8;
+}
+
+@media (max-width: 576px) {
+    .modal-dialog {
+        margin: 1rem;
+    }
+    
+    .modal-body {
+        padding: 16px;
+    }
+    
+    .password-input-group .form-control {
+        padding: 6px 20px 6px 8px;
+        font-size: 14px;
+    }
+}
+
+/* Desktop layout - horizontal profile container */
+@media (min-width: 992px) {
+    .profile-container {
+        max-width: 800px;
+        display: flex;
+        align-items: stretch;
+        padding: 0;
+        gap: 0;
+    }
+    
+    .profile-header {
+        background: linear-gradient(135deg, #060E57 0%, #4169E1 100%);
+        color: white;
+        padding: 40px 30px;
+        text-align: center;
+        position: relative;
+        border-radius: 16px 0 0 16px;
+        min-width: 200px;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* Add smooth concave C curve to the right side */
+
+    }
+    
+    .profile-header::after {
+        display: none;
+        border-radius:  0 0 50% 50% ; /* Remove the curved bottom on desktop */
+    }
+    
+    .profile-avatar {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto;
+        border: 5px solid white;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        position: relative;
+        z-index: 10;
+        background-color: white;
+        transform: none; /* Remove translateY on desktop */
+    }
+    
+    .profile-details {
+        padding: 40px 30px;
+        text-align: left;
+        flex: 1;
+        background: white;
+        border-radius: 0 16px 16px 0;
+    }
+    
+    .profile-form {
+        background-color: transparent;
+        border-radius: 0;
+        padding: 0;
+        margin-top: 0;
+        border: none;
+    }
+    
+    .form-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #060E57;
+        margin-bottom: 25px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #e5e7eb;
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #374151;
+        font-size: 15px;
+    }
+    
+    .form-input {
+        width: 100%;
+        padding: 6px 10px;
+        border: 2px solid #e5e7eb;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        background-color: #f8f9fa;
+        color: #495057;
+    }
+    
+    .form-input:focus {
+        border-color: #4169E1;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(65, 105, 225, 0.1);
+        background-color: white;
+    }
+    
+    .form-input:read-only {
+        background-color: #f8f9fa;
+        cursor: not-allowed;
+    }
+    
+    .btn-group {
+        display: flex;
+        justify-content: flex-start;
+        gap: 15px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+    }
+    
+    .btn {
+        padding: 10px 18px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+        font-size: 15px;
+        flex: none;
+        min-width: 140px;
+        margin: 0 !important;
+    }
+
+}

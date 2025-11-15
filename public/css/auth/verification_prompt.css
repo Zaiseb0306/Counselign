@@ -1,0 +1,157 @@
+/* Verification Prompt Styles */
+
+.countdown-timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.countdown-timer .badge {
+    font-size: 1.5rem !important;
+    padding: 0.5rem 1rem;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#verificationSuccessMessage .alert {
+    border-left: 4px solid #28a745;
+}
+
+#verificationSuccessMessage .btn {
+    min-width: 150px;
+}
+
+/* 6-box token input styling */
+.token-inputs {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.token-inputs .token-box {
+    width: 44px;
+    height: 48px;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+}
+
+.token-inputs .token-box:focus {
+    outline: none;
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* Resend Verification Modal Styles */
+#resendVerificationModal .modal-content {
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+#resendVerificationModal .modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+#resendVerificationModal .modal-title {
+    color: #495057;
+    font-weight: 600;
+}
+
+#resendVerificationModal .form-label {
+    font-weight: 500;
+    color: #495057;
+    margin-bottom: 0.5rem;
+}
+
+#resendVerificationModal .form-control {
+    border-radius: 0.375rem;
+    border: 1px solid #ced4da;
+    padding: 0.75rem;
+    font-size: 1rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+#resendVerificationModal .form-control:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    outline: none;
+}
+
+#resendVerificationModal .btn {
+    border-radius: 0.375rem;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.15s ease-in-out;
+}
+
+#resendVerificationModal .btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+#resendVerificationModal .btn-primary:hover {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+}
+
+#resendVerificationModal .btn-outline-secondary {
+    color: #6c757d;
+    border-color: #6c757d;
+}
+
+#resendVerificationModal .btn-outline-secondary:hover {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: #fff;
+}
+
+#resendVerificationModal .text-danger {
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+#resendVerificationModal .text-muted {
+    color: #6c757d !important;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 576px) {
+    #verificationSuccessMessage .d-flex {
+        flex-direction: column;
+        gap: 0.5rem !important;
+    }
+    
+    #verificationSuccessMessage .btn {
+        width: 100%;
+    }
+
+    .token-inputs {
+        gap: 0.4rem;
+    }
+    .token-inputs .token-box {
+        width: 40px;
+        height: 46px;
+        font-size: 1.1rem;
+    }
+
+    /* Mobile styles for resend verification modal */
+    #resendVerificationModal .modal-dialog {
+        margin: 1rem;
+    }
+    
+    #resendVerificationModal .btn {
+        padding: 0.75rem 1rem;
+        font-size: 0.95rem;
+    }
+}

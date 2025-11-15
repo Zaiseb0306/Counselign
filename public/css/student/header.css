@@ -1,0 +1,683 @@
+/* Scoped admin header styles extracted from admin dashboard */
+
+header {
+    background-color: #060E57;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 15px; /* Default padding for header */
+    display: flex;
+    align-items: center;
+    color: white;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    min-height: 64px; /* Set a minimum height for consistency */
+
+}
+
+.header-container {
+    display: flex !important;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    /* Default padding, will be overridden by media queries for small screens */
+    padding: 0 20px;
+}
+
+.header-container .row {
+    display: flex !important;
+    flex-wrap: nowrap !important; /* Crucial: prevent wrapping */
+    width: 100% !important;
+    margin-left: 0 !important; /* Zero out row margins */
+    margin-right: 0 !important; /* Zero out row margins */
+}
+.d-flex.align-items-center {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distribute items with space between */
+    width: 100%;
+}
+
+.header-container .row .col-md-3 {
+    flex: 0 0 140px !important; /* Fixed width for logo and title */
+    flex-shrink: 0; /* Prevent shrinking */
+    min-width: 0; /* Allow content to truly shrink if necessary */
+    max-width: 140px !important; /* Ensure it doesn't grow beyond this */
+    padding-left: 0 !important; /* Zero out column padding */
+    padding-right: 0 !important; /* Zero out column padding */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+}
+
+.header-container .row .col-md-9 {
+    flex: 0 0 calc(100% - 140px) !important; /* Take remaining space precisely */
+    flex-shrink: 0; /* Prevent shrinking */
+    min-width: 0; /* Allow content to truly shrink if necessary */
+    padding-left: 0 !important; /* Zero out column padding */
+    padding-right: 0 !important; /* Zero out column padding */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+}
+
+.logo-title-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0 !important; /* Ensure no margin pushes content down */
+}
+
+.logo {
+    width: auto;
+    max-width: 40px;
+    height: auto;
+    object-fit: contain;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+h1 {
+    margin-bottom: 0 !important;
+    white-space: nowrap !important; /* Crucial: prevent text wrapping */
+    font-size: 1.1rem !important; /* Adjust font size to fit */
+}
+
+.navbar-nav.nav-links.ms-auto {
+    display: flex;
+    align-items: center;
+    margin-left: auto !important;
+}
+
+.btn-logout {
+    background-color: #ffffff;
+    color: rgb(61, 59, 59);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex; /* Ensure it's a flex container */
+    align-items: center; /* Vertically align items */
+    gap: 8px; /* Space between icon and text */
+}
+
+.btn-logout:hover {
+    background-color: #c82333;
+}
+
+.btn-logout i {
+    margin-right: 5px;
+}
+
+header {
+    background-color: #060E57;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px; /* Default padding for header */
+    display: flex;
+    align-items: center;
+    color: white;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-nav .nav-link {
+    position: relative;
+    pointer-events: auto;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Add underline animation on hover */
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: white;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    opacity: 0;
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 80%;
+    opacity: 1;
+}
+
+/* Icon animation on hover */
+.navbar-nav .nav-link i {
+    transition: transform 0.3s ease;
+    color: white !important;
+    margin-right: 6px;
+}
+
+.navbar-nav .nav-link:hover i {
+    transform: scale(1.2);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-weight: 600;
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 4px;
+    position: relative;
+    pointer-events: auto;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    transform: translateY(-2px);
+}
+
+
+
+
+/* Drawer styles */
+.custom-navbar-toggler {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0.25rem;
+    font-size: 1rem;
+    line-height: 2;
+    color: #fff;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    margin-left: auto !important;
+    margin-right: 0.7rem !important;
+    margin-top: 0.7rem !important;
+    margin-bottom: 0.7rem !important;
+    z-index: 1050;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.custom-navbar-toggler:focus,
+.custom-navbar-toggler:active,
+.custom-navbar-toggler:hover,
+.custom-navbar-toggler:focus-visible {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+.custom-navbar-toggler::-moz-focus-inner {
+    border: 0;
+}
+
+.custom-navbar-toggler .navbar-toggler-icon {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    filter: brightness(0) invert(1);
+}
+
+.custom-navbar-toggler .navbar-toggler-icon i {
+    font-size: 1.5em !important;
+    color: #fff;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.35));
+    transition: transform 0.3s ease;
+}
+
+.custom-navbar-toggler:hover .navbar-toggler-icon i {
+    transform: rotate(90deg);
+}
+
+.custom-navbar-toggler.active .navbar-toggler-icon i {
+    transform: rotate(180deg);
+}
+
+/* Navbar Drawer */
+.navbar-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px;
+    max-width: 80vw;
+    height: 100%;
+    background: #060E57;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-out;
+    z-index: 1040;
+    padding-top: 20px;
+    visibility: hidden;
+}
+
+.navbar-drawer.show {
+    transform: translateX(0);
+    visibility: visible;
+}
+
+.navbar-drawer .navbar-nav {
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.navbar-drawer .nav-item {
+    width: 100%;
+    margin: 0;
+}
+
+.navbar-drawer .nav-link {
+    padding: 0.75rem 1rem !important;
+    color: #fff !important;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center !important;
+    border-radius: 0;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.navbar-drawer .nav-link i {
+    margin-right: 10px;
+}
+
+.navbar-drawer .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    transform: translateX(4px);
+}
+
+.drawer-item-click {
+    animation: drawerItemClick 220ms ease-in-out;
+}
+
+/* Navbar Overlay */
+.navbar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1039;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+}
+
+.navbar-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+@keyframes drawerItemClick {
+    0% { transform: translateX(0) scale(1); }
+    50% { transform: translateX(2px) scale(0.98); }
+    100% { transform: translateX(0) scale(1); }
+}
+
+@media (max-width: 991.98px) {
+    .container-fluid {
+        padding-left: 0 !important; /* Zero out container-fluid padding */
+        padding-right: 0 !important; /* Zero out container-fluid padding */
+    }
+
+    header.user-header .header-container {
+        padding: 0 5px !important; /* Minimal padding for header container */
+    }
+
+    header.user-header .header-container .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    header.user-header .header-container .row .col-md-3 {
+        flex: 0 0 100px !important; /* Fixed width for logo/title */
+        max-width: 100px !important;
+        padding-left: 0 !important; /* Zero out column padding */
+        padding-right: 0 !important; /* Zero out column padding */
+    }
+
+    header.user-header .header-container .row .col-md-9 {
+        flex: 0 0 calc(100% - 120px) !important; /* Take remaining space precisely */
+        min-width: 0 !important;
+        padding-left: 0 !important; /* Zero out column padding */
+        padding-right: 0 !important; /* Zero out column padding */
+        display: flex !important;
+        justify-content: flex-end !important;
+        align-items: center !important;
+    }
+
+    .user-navbar-toggler {
+        display: block !important; /* Show hamburger menu on mobile */
+        margin-left: auto !important;
+        order: 2;
+    }
+
+    header.user-header .logo-title-container {
+        margin-bottom: 0 !important;
+    }
+
+    header.user-header h1 {
+        margin: 0 !important;
+        text-align: left !important;
+        font-size: 1.1rem !important;
+        white-space: nowrap !important;
+    }
+
+    /* Hide standard nav elements completely on small screens */
+    header.user-header nav {
+        display: none !important;
+    }
+
+    /* Navigation Tabs - Tablet/Mobile responsive */
+    .nav-tabs {
+        display: flex !important;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        border-bottom: 1px solid #dee2e6;
+        padding: 0 5px;
+        gap: 5px;
+    }
+
+    .nav-tabs .nav-item {
+        flex: 0 0 auto;
+        margin-bottom: -1px;
+        min-width: 50px;
+    }
+
+    .nav-tabs .nav-link {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        padding: 10px 8px !important;
+        text-align: center;
+        min-height: 60px;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .nav-tabs .nav-link i {
+        font-size: 1.2rem;
+        margin: 0;
+    }
+
+    /* Hide text labels on tablet/mobile - show only icons */
+    .nav-tabs .nav-link .tab-text {
+        display: none !important;
+    }
+}
+
+@media (max-width: 767.98px) {
+    /* Navigation Tabs - Smartphone adjustments */
+    .nav-tabs {
+        gap: 4px;
+        padding: 0 3px;
+    }
+
+    .nav-tabs .nav-item {
+        min-width: 45px;
+    }
+
+    .nav-tabs .nav-link {
+        padding: 8px 6px !important;
+        min-height: 55px;
+        gap: 3px;
+    }
+
+    .nav-tabs .nav-link i {
+        font-size: 1.1rem;
+    }
+    
+}
+
+@media (max-width: 575.98px) {
+    /* Navigation Tabs - Extra small smartphones */
+    .nav-tabs {
+        gap: 3px;
+        padding: 0 2px;
+    }
+
+    .nav-tabs .nav-item {
+        min-width: 40px;
+    }
+
+    .nav-tabs .nav-link {
+        padding: 6px 4px !important;
+        min-height: 50px;
+        gap: 2px;
+    }
+
+    .nav-tabs .nav-link i {
+        font-size: 1rem;
+    }
+}
+
+
+@media (max-width: 992px) {
+    .container-fluid {
+        padding-left: 0 !important; /* Zero out container-fluid padding */
+        padding-right: 0 !important; /* Zero out container-fluid padding */
+    }
+
+    .header-container {
+        padding: 0 5px !important; /* Minimal padding for header container */
+    }
+
+    .header-container .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .header-container .row .col-md-3 {
+        flex: 0 0 100px !important; /* Fixed width for logo/title */
+        max-width: 100px !important;
+        padding-left: 0 !important; /* Zero out column padding */
+        padding-right: 0 !important; /* Zero out column padding */
+    }
+
+    .header-container .row .col-md-9 {
+        flex: 0 0 calc(100% - 120px) !important; /* Take remaining space precisely */
+        min-width: 0 !important;
+        padding-left: 0 !important; /* Zero out column padding */
+        padding-right: 0 !important; /* Zero out column padding */
+        display: flex !important;
+        justify-content: flex-end !important;
+        align-items: center !important;
+    }
+
+
+    .logo-title-container {
+        margin-bottom: 0 !important;
+    }
+
+    h1 {
+        margin: 0 !important;
+        text-align: left !important;
+        font-size: 1.1rem !important;
+        white-space: nowrap !important;
+    }
+
+    /* Hide standard nav elements completely on small screens */
+    nav {
+        display: none !important;
+    }
+
+    
+}
+
+
+@media (max-width: 768px) {
+    .container-fluid {
+        padding-left: 0 !important; /* Zero out container-fluid padding */
+        padding-right: 0 !important; /* Zero out container-fluid padding */
+    }
+
+    .header-container {
+        padding: 0 5px !important; /* Minimal padding for header container */
+    }
+
+    .header-container .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .header-container .row .col-md-3 {
+        flex: 0 0 100px !important; /* Fixed width for logo/title */
+        max-width: 100px !important;
+        padding-left: 0 !important; /* Zero out column padding */
+        padding-right: 0 !important; /* Zero out column padding */
+    }
+
+    .header-container .row .col-md-9 {
+        flex: 0 0 calc(100% - 120px) !important; /* Take remaining space precisely */
+        min-width: 0 !important;
+        padding-left: 0 !important; /* Zero out column padding */
+        padding-right: 0 !important; /* Zero out column padding */
+        display: flex !important;
+        justify-content: flex-end !important;
+        align-items: center !important;
+    }
+
+
+    .logo-title-container {
+        margin-bottom: 0 !important;
+    }
+
+    h1 {
+        margin: 0 !important;
+        text-align: left !important;
+        font-size: 1.1rem !important;
+        white-space: nowrap !important;
+    }
+
+    /* Hide standard nav elements completely on small screens */
+    nav {
+        display: none !important;
+    }
+
+}
+
+
+@media (max-width: 576px) {
+    .container-fluid {
+        padding-left: 0 !important; /* Zero out container-fluid padding */
+        padding-right: 0 !important; /* Zero out container-fluid padding */
+    }
+
+    .header-container {
+        padding: 0 5px !important; /* Minimal padding for header container */
+    }
+
+    .header-container .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .header-container .row .col-md-3 {
+        flex: 0 0 100px !important; /* Fixed width for logo/title */
+        max-width: 100px !important;
+        padding-left: 0 !important; /* Zero out column padding */
+        padding-right: 0 !important; /* Zero out column padding */
+    }
+
+    .header-container .row .col-md-9 {
+        flex: 0 0 calc(100% - 120px) !important; /* Take remaining space precisely */
+        min-width: 0 !important;
+        padding-left: 0 !important; /* Zero out column padding */
+        padding-right: 0 !important; /* Zero out column padding */
+        display: flex !important;
+        justify-content: flex-end !important;
+        align-items: center !important;
+    }
+
+    
+
+    h1 {
+        margin: 0 !important;
+        text-align: left !important;
+        font-size: 1.1rem !important;
+        white-space: nowrap !important;
+    }
+
+    /* Hide standard nav elements completely on small screens */
+    nav {
+        display: none !important;
+    }
+
+    
+}
+
+
+@media (max-width: 480px) {
+    .container-fluid {
+        padding-left: 0 !important; /* Zero out container-fluid padding */
+        padding-right: 0 !important; /* Zero out container-fluid padding */
+    }
+
+    .header-container {
+        padding: 0 5px !important; /* Minimal padding for header container */
+    }
+
+    .header-container .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .header-container .row .col-md-3 {
+        flex: 0 0 100px !important; /* Fixed width for logo/title */
+        max-width: 100px !important;
+        padding-left: 0 !important; /* Zero out column padding */
+        padding-right: 0 !important; /* Zero out column padding */
+    }
+
+    .header-container .row .col-md-9 {
+        flex: 0 0 calc(100% - 120px) !important; /* Take remaining space precisely */
+        min-width: 0 !important;
+        padding-left: 0 !important; /* Zero out column padding */
+        padding-right: 0 !important; /* Zero out column padding */
+        display: flex !important;
+        justify-content: flex-end !important;
+        align-items: center !important;
+    }
+
+    .logo-title-container {
+        margin-bottom: 0 !important;
+    }
+
+    h1 {
+        margin: 0 !important;
+        text-align: left !important;
+        font-size: 1.1rem !important;
+        white-space: nowrap !important;
+    }
+
+    /* Hide standard nav elements completely on small screens */
+    nav {
+        display: none !important;
+    }
+
+    .btn-logout {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+
+
+    
+}

@@ -1,0 +1,18 @@
+Project Intelligence for UGC Counseling System
+
+Conventions
+- Keep Memory Bank authoritative; update after meaningful changes
+- Prefer clear, verbose naming in code edits; avoid cryptic abbreviations
+- Respect CodeIgniter 4 MVC boundaries (controllers thin, models for data access)
+
+Workflow preferences
+- Small, incremental edits with clear commit messages
+- After adding/modifying endpoints, update `systemPatterns.md` and `activeContext.md`
+- After schema changes, reflect in `techContext.md` and `progress.md`
+
+Guardrails
+- Do not expose admin-only routes to unauthenticated users
+- Validate/escape all user inputs; rely on CI4 Validation and Filters
+- Use CI4 Logger for server-side errors; avoid echoing raw errors in views
+
+

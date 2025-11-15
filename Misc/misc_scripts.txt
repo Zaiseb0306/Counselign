@@ -1,0 +1,200 @@
+@StudentSpecialCircumstancesModel.php @StudentServicesNeededModel.php @StudentServicesAvailedModel.php @StudentResidenceInfoModel.php @StudentPersonalInfoModel.php @StudentPDSModel.php @StudentFamilyInfoModel.php @StudentAddressInfoModel.php @StudentAcademicInfoModel.php @counselign.sql 
+
+scan these models and the counselign.sql and then make sure to connect these to the pds form in the @student_profile.js  and @student_profile.php make the necessary controllers also and the routes and then take note of the following:
+
+load these data to their appropriate inputs in the pds form in the @student_profile.php when the page loads, where the data is based on the student logged in of course.
+
+if the student selects Married in the civilStatusSelect only then the spouse input and it's label will show but if other options were selected in the civilStatusSelect, the spouse input would not show and the value of the spouse that will be saved in it's appropriate sql table will be N/A.
+
+in the pwd check, if the student chooses no then the pwdSpecify and the pwdProof would be hidden and the input for these 2 would become N/A  but if the choice is yes in the pwd check then the pwdSpecify  and pwdProof  would show and make sure that the pwdProof would recieve a pdf, image, video docx or even an excel file.
+
+and also, services needed and sevices can and must be able save and  multiple inputs or selections.
+
+handle also partial updates where the students can update some of their personal info, if some inputs are empty during update, their saved value in the database are either N/A or database defined default value.
+
+and take note:
+student_id = user_id(users table)
+
+
+
+
+these are your focus and make sure to avoid changing or modifying existing functions that are not connected to this function we are trying to implement.
+
+Make sure to avoid ambiguous and spaghetti coding as we here promote a type safe coding project for easy debugging, thank you.
+
+
+
+
++420607835460
+
+
+@NotificationsModel.php @counselor_dashboard.js @student_dashboard.js @dashboard.php @appointments.php help me pinpoint exaclty what is wrong with notifications functions for both the students and counselors as it would always say no notifications or failed to load notifications.
+
+
+this is your focus and make sure to avoid changing or modifying existing functions that are not connected to this/these function/s we are trying to fix/modify/implement.
+
+Make sure to avoid ambiguous and spaghetti coding as we here promote a type safe coding project for easy debugging, and always scan for linter errors and warnings in the console so that you can fix them before confirming the changes  thank you.
+
+
+@FollowUpAppointmentModel.php  add a new function in the student/schedule-appointment on top of the function where it checks for pending appointments that would decide the ability of the appointment form, that it would also check if the student has a pending follow_up session in the follow_up_appointments sql table if there is one then the student cannot yet make an appointment.
+
+
+this is your focus and make sure to avoid changing or modifying existing functions that are not connected to this/these function/s we are trying to add/modify/fix/implement and retain original functions also if needed.
+
+Make sure to also take important note of the following:
+: avoid ambiguous and spaghetti coding as we here promote a type safe coding project for easy debugging.
+: make sure that update uses functions and everything that satisfies the requirements of dart and flutter for safe and proper coding practices.
+: always refer to the files in the memory bank before and after the execution of your response.
+: make sure to always address linter errors without modifying, changing, removing, repositioning functions that are not connected to the function/s we are trying to address.
+:make sure you scan for linter warnings and errors, in the console and problems tab, then fix them if there are any before finishing your response, so that the moment you finish, there problems and console tab is clear of potential warnings.
+ 
+: as for the backend MVC, the Counselign folder inside this project is only a reference,  the real one where the  whole project uses for the API is inside the xampp/htdocs/ of the IP ADDRESS provided in the API path. so even if you edit this Counselign MVC folder inside this project it would have changed nothing in the real one, so what you need to adjust is always the views and frontend functions inside this dart project as I have ensured that the backend is fixed before this, no configuration changes must be made in the Counselign MVC folder in this project, thank you.
+
+
+please help me which code block/s should I modify and give the full modified version of each of the files/s modified with detailed guide.
+
+
+this is your focus and make sure to avoid changing or modifying existing functions that are not connected to this/these problem/s we are trying to address.
+
+Make sure to also take important note of the following:
+: avoid ambiguous and spaghetti coding as we here promote a type safe coding project for easy debugging.
+: make sure that update uses functions and everything that satisfies the requirements of dart and flutter for safe and proper coding practices.
+: always refer to the files in the memory bank before and after the execution of your response.
+: make sure to always address linter errors without modifying, changing, removing, repositioning functions that are not connected to the function/s we are trying to address.
+: as for the backend MVC, the Counselign folder inside this project is only a reference,  the real one where the  whole project uses for the API is inside the xampp/htdocs/ of the IP ADDRESS provided in the API path. so even if you edit this Counselign MVC folder inside this project it would have changed nothing in the real one, so what you need to adjust is always the views and frontend functions inside this dart project as I have ensured that the backend is fixed before thi, no configuration changes must be made in the Counselign MVC folder in this project.
+ thank you.
+
+
+irm https://raw.githubusercontent.com/yeongpin/cursor-free-vip/main/scripts/install.ps1 | iex
+
+
+
+
+after the recent changes to the notifications in the student dashboard, it does show any notifications anymore, even the counselor notification is the same
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+here are some problems with the newly implemented @counselor_appointments_screen.dart 
+
+the counselor can't approve a pending appointment yet
+
+when the counselor tries to reject the appointment and clicks the submit button in the Reject Appointment Modal/dialog, the error above pops up in the console.
+
+this is your focus and make sure to avoid changing or modifying existing functions that are not connected to this/these function/s we are trying to add/modify/fix/implement.
+
+Make sure to also take important note of the following:
+: avoid ambiguous and spaghetti coding as we here promote a type safe coding project for easy debugging.
+: make sure that update uses functions and everything that satisfies the requirements of dart and flutter for safe and proper coding practices.
+: always refer to the files in the memory bank before and after the execution of your response.
+: make sure to always address linter errors without modifying, changing, removing, repositioning functions that are not connected to the function/s we are trying to address.
+: as for the backend MVC, the Counselign folder inside this project is only a reference,  the real one where the  whole project uses for the API is inside the xampp/htdocs/ of the IP ADDRESS provided in the API path. so even if you edit this Counselign MVC folder inside this project it would have changed nothing in the real one, so what you need to adjust is always the views and frontend functions inside this dart project as I have ensured that the backend is fixed before thi, no configuration changes must be made in the Counselign MVC folder in this project.
+ thank you.
+
+
+INFO - 2025-10-25 12:55:38 --> Updated logout activity for user 2023303620 at 2025-10-25 12:55:38
+INFO - 2025-10-25 13:10:29 --> Updated logout activity for user 2023303610 at 2025-10-25 13:10:29
+INFO - 2025-10-25 13:12:05 --> Updated logout activity for user 2023303610 at 2025-10-25 13:12:05
+INFO - 2025-10-25 13:43:39 --> Updated logout activity for user 2023303620 at 2025-10-25 13:43:39
+
+
+
+
+
+
+
+
+
+
+
+in the resend verification token modal in the @landing.php make sure that it is a modal and designed just like the orher modal while keeping its original functionality getting the user_id or email of the user and uses it to send the code.
+
+this is your focus and make sure to avoid changing or modifying existing functions that are not connected to this/these function/s we are trying to fix/modify/implement.
+
+Make sure to avoid ambiguous and spaghetti coding as we here promote a type safe coding project for easy debugging, and always scan for linter errors and warnings in the console so that you can fix them before confirming the changes  thank you.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+I want you to make it so that the dart version of this view_all_appointments is the exact copy of it's javascript counterpart from the design of the Line graph to the functions in the exports filters and even the excel exports, would that be possible?
+
+if so, please provide on which functions of any of the dart files here do i have to modify so that we can make perfect copy of view all apointments page web version to a dart version they are using the same controllers and models as the flutter is connected to the CodeIgniter MVC so I want you to focus modifying the front end of the dart version.
+
+
+
+
+
+
+
+
+
+
+
+
+
+now, in the sign up process, if the user has a counselor role, they would not go through the original process of token verification when signing up, instead only if they signing up as counselor a new modal would open where the must input their basic personal information that is to be saved in the counselor table in the database but they are still not verified yet is_verified = 0(false) after saving their basic information,  but it would send an email to the only account based on the users table where the role is admin and it gets the email of that admin and sends an email message regarding a new counselor singing up. leave the original signing up process for the student roles as it is, this is only for counselor roles.
+
+then after that whole process of saving their personal information they will have to wait so that admin approves their accounts(future implementation), so if a counselor account tries login but their account is still not verified yet, a message will pop up that says something like their account is still on the pending process of verifying it, while the leaving the original function for the student as it when their account is not been verified yet they would be redirected to the verification modal.
+
+please provide me on which functions or code blocks in any of the files here do i have to modify.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Add this to handleCivilStatusChange() function
+function handleCivilStatusChange() {
+    const civilStatusSelect = document.getElementById('civilStatusSelect');
+    const spouseField = document.getElementById('spouse');
+    const spouseOccupationField = document.getElementById('spouseOccupation');
+    const spouseEducationField = document.getElementById('spouseEducationalAttainment');
+    
+    if (civilStatusSelect && spouseField) {
+        const toggleSpouseFields = () => {
+            const isMarried = civilStatusSelect.value === 'Married';
+            
+            // Show/hide all spouse-related fields
+            [spouseField, spouseOccupationField, spouseEducationField].forEach(field => {
+                if (field) {
+                    field.style.display = isMarried ? 'block' : 'none';
+                    if (!isMarried) field.value = 'N/A';
+                }
+            });
+        };
+        
+        toggleSpouseFields();
+        civilStatusSelect.addEventListener('change', toggleSpouseFields);
+    }
+}
